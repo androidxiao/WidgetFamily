@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="x_alpha_pressed" format="float"/>
+    <attr name="x_alpha_disabled" format="float"/>
+    <attr name="x_general_shadow_elevation" format="dimension"/>
+    <attr name="x_general_shadow_alpha" format="float"/>
+</resources>

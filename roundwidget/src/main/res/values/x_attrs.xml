@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 背景色 -->
+    <attr name="x_backgroundColor" format="color"/>
+    <!-- 边框颜色 -->
+    <attr name="x_borderColor" format="color"/>
+    <!-- 边框宽度 -->
+    <attr name="x_borderWidth" format="dimension"/>
+    <!-- 圆角是否要自适应为 View 高度的一半 -->
+    <attr name="x_isRadiusAdjustBounds" format="boolean"/>
+    <!-- 同时指定四个方向的圆角 -->
+    <attr name="x_radius" format="dimension"/>
+    <!-- 指定左上方圆角的大小 -->
+    <attr name="x_radiusTopLeft" format="dimension"/>
+    <!-- 指定右上方圆角的大小 -->
+    <attr name="x_radiusTopRight" format="dimension"/>
+    <!-- 指定左下方圆角的大小 -->
+    <attr name="x_radiusBottomLeft" format="dimension"/>
+    <!-- 指定右下方圆角的大小 -->
+    <attr name="x_radiusBottomRight" format="dimension"/>
+    <!-- 正常背景色 -->
+    <attr name="x_enableColor" format="color"/>
+    <!-- 不可用背景色 -->
+    <attr name="x_unEnableColor" format="color"/>
+    <!-- 按下背景色 -->
+    <attr name="x_pressColor" format="color"/>
+    <!-- 控件是否可用 -->
+    <attr name="x_enable" format="boolean"/>
+    <!-- 正常字体颜色 -->
+    <attr name="x_fontEnableColor" format="color"/>
+    <!-- 按下字体的颜色 -->
+    <attr name="x_fontPressColor" format="color"/>
+    <!-- 不可用时字体的颜色 -->
+    <attr name="x_fontUnEnableColor" format="color"/>
+
+    <attr name="XButtonStyle" format="reference"/>
+
+    <declare-styleable name="XRoundButton">
+        <attr name="x_backgroundColor"/>
+        <attr name="x_borderColor"/>
+        <attr name="x_borderWidth"/>
+        <attr name="x_isRadiusAdjustBounds"/>
+        <attr name="x_radius"/>
+        <attr name="x_radiusTopLeft"/>
+        <attr name="x_radiusTopRight"/>
+        <attr name="x_radiusBottomLeft"/>
+        <attr name="x_radiusBottomRight"/>
+        <attr name="x_enableColor"/>
+        <attr name="x_unEnableColor"/>
+        <attr name="x_pressColor"/>
+        <attr name="x_enable"/>
+        <attr name="x_fontEnableColor"/>
+        <attr name="x_fontPressColor"/>
+        <attr name="x_fontUnEnableColor"/>
+    </declare-styleable>
+
+    <declare-styleable name="XRoundLayout">
+        <attr name="x_backgroundColor"/>
+        <attr name="x_borderColor"/>
+        <attr name="x_borderWidth"/>
+        <attr name="x_isRadiusAdjustBounds"/>
+        <attr name="x_radius"/>
+        <attr name="x_radiusTopLeft"/>
+        <attr name="x_radiusTopRight"/>
+        <attr name="x_radiusBottomLeft"/>
+        <attr name="x_radiusBottomRight"/>
+        <attr name="x_enableColor"/>
+        <attr name="x_unEnableColor"/>
+        <attr name="x_pressColor"/>
+        <attr name="x_enable"/>
+    </declare-styleable>
+
+    <declare-styleable name="XLayout">
+        <attr name="android:maxWidth"/>
+        <attr name="android:maxHeight"/>
+        <attr name="android:minWidth"/>
+        <attr name="android:minHeight"/>
+        <attr name="x_bottomDividerHeight" format="dimension"/>
+        <attr name="x_bottomDividerColor" format="color|reference"/>
+        <attr name="x_bottomDividerInsetLeft" format="dimension"/>
+        <attr name="x_bottomDividerInsetRight" format="dimension"/>
+        <attr name="x_topDividerHeight" format="dimension"/>
+        <attr name="x_topDividerColor" format="color|reference"/>
+        <attr name="x_topDividerInsetLeft" format="dimension"/>
+        <attr name="x_topDividerInsetRight" format="dimension"/>
+        <attr name="x_leftDividerWidth" format="dimension"/>
+        <attr name="x_leftDividerColor" format="color|reference"/>
+        <attr name="x_leftDividerInsetTop" format="dimension"/>
+        <attr name="x_leftDividerInsetBottom" format="dimension"/>
+        <attr name="x_rightDividerWidth" format="dimension"/>
+        <attr name="x_rightDividerColor" format="color|reference"/>
+        <attr name="x_rightDividerInsetTop" format="dimension"/>
+        <attr name="x_rightDividerInsetBottom" format="dimension"/>
+        <attr name="x_radiusViewGroup" format="dimension"/>
+        <attr name="x_borderColorViewGroup" format="color|reference"/>
+        <attr name="x_borderWidthViewGroup" format="dimension"/>
+        <attr name="x_outerNormalColor" format="color|reference"/>
+        <attr name="x_hideRadiusSide" format="enum">
+            <enum name="none" value="0"/>
+            <enum name="top" value="1"/>
+            <enum name="right" value="2"/>
+            <enum name="bottom" value="3"/>
+            <enum name="left" value="4"/>
+        </attr>
+        <attr name="x_showBorderOnlyBeforeL" format="boolean"/>
+        <attr name="x_shadowElevation" format="dimension"/>
+        <attr name="x_useThemeGeneralShadowElevation" format="boolean"/>
+        <attr name="x_shadowAlpha" format="float"/>
+        <attr name="x_outlineInsetTop" format="dimension"/>
+        <attr name="x_outlineInsetLeft" format="dimension"/>
+        <attr name="x_outlineInsetRight" format="dimension"/>
+        <attr name="x_outlineInsetBottom" format="dimension"/>
+        <attr name="x_outlineExcludePadding" format="boolean"/>
+    </declare-styleable>
+</resources>

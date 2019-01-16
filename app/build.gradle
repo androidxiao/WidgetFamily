@@ -17,13 +17,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    repositories {
+        flatDir{
+            dirs'libs'
+//            dirs'libs','../roundwidget/libs'
+        }
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation libs.design
     implementation libs.constraintlayout
     implementation libs.recyclerview
     implementation libs.supportV4
     implementation libs.supportV7
+    implementation (name:'xutils_release_V1.0.0.20190113',ext:'aar')
+    implementation (name:'roundWidget_release_V1.0.0.20190113',ext:'aar')
+//    implementation project(':roundwidget')
 }
