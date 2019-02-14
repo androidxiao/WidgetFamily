@@ -1,34 +1,32 @@
-package kotyox.roundwidget;
+package kotyox.widget;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
-import com.xutils.kotyo.XViewHelper;
-
-import kotyox.layout.XFrameLayout;
-
+import kotyox.alpha.XAlphaRelativeLayout;
+import kotyoxutils.XViewHelper;
 
 
 /**
  * Created by wei.
- * Date: 2019/1/3 下午10:41
- * Description: see {@link XRoundFrameLayout} 与 {@link XRoundLayoutDrawable}
+ * Date: 2019/1/3 下午11:52
+ * Description: see {@link XRoundRelativeLayout} 与 {@link XRoundLayoutDrawable}
  */
-public class XRoundFrameLayout extends XFrameLayout {
+public class XRoundRelativeLayout extends XAlphaRelativeLayout {
 
     private XRoundLayoutDrawable mBg;
 
-    public XRoundFrameLayout(@NonNull Context context) {
+    public XRoundRelativeLayout(@NonNull Context context) {
         this(context, null);
     }
 
-    public XRoundFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public XRoundRelativeLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public XRoundFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public XRoundRelativeLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr);
     }
@@ -47,5 +45,9 @@ public class XRoundFrameLayout extends XFrameLayout {
         mBg.setIsTouchPass(false);
     }
 
-
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        mBg = null;
+    }
 }

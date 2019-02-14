@@ -1,4 +1,4 @@
-package kotyox.roundwidget;
+package kotyox.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -13,11 +13,10 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.xutils.kotyo.XViewHelper;
-
 import java.lang.ref.WeakReference;
 
 import family.widget.com.roundwidget.R;
+import kotyoxutils.XViewHelper;
 
 
 /**
@@ -41,6 +40,7 @@ public class XRoundButtonDrawable extends GradientDrawable {
     private ColorStateList mStrokeColors;
     private boolean mIsTouchPass = true;
     private WeakReference<View> mReference;
+    private boolean mShowBgColor;
 
     public XRoundButtonDrawable(View view) {
         mReference = new WeakReference<>(view);
@@ -69,20 +69,22 @@ public class XRoundButtonDrawable extends GradientDrawable {
      * View 的 touch 事件
      */
     public void setTouchListener() {
-        mReference.get().setEnabled(isEnable);
-        if (isEnable) {
-            setColor(mEnableColor);
-            setViewTextColor(mReference.get(), mFontEnableColor);
-            mReference.get().setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    XViewHelper.setBackgroundKeepingPadding(mReference.get(), XRoundButtonDrawable.this);
-                    return setColor(mReference.get(), event.getAction());
-                }
-            });
-        } else {
-            setColor(mUnEnableColor);
-            setViewTextColor(mReference.get(), mFontUnEnableColor);
+        if (!mShowBgColor) {
+            mReference.get().setEnabled(isEnable);
+            if (isEnable) {
+                setColor(mEnableColor);
+                setViewTextColor(mReference.get(), mFontEnableColor);
+                mReference.get().setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        XViewHelper.setBackgroundKeepingPadding(mReference.get(), XRoundButtonDrawable.this);
+                        return setColor(mReference.get(), event.getAction());
+                    }
+                });
+            } else {
+                setColor(mDisableColor);
+                setViewTextColor(mReference.get(), mFontUnEnableColor);
+            }
         }
     }
 
@@ -211,20 +213,25 @@ public class XRoundButtonDrawable extends GradientDrawable {
         int mRadiusBottomLeft = ta.getDimensionPixelSize(R.styleable.XRoundButton_x_radiusBottomLeft, 0);
         int mRadiusBottomRight = ta.getDimensionPixelSize(R.styleable.XRoundButton_x_radiusBottomRight, 0);
         int enableColor = ta.getColor(R.styleable.XRoundButton_x_enableColor, ContextCompat.getColor(context, R.color.c_transparent));
-        int unEnableColor = ta.getColor(R.styleable.XRoundButton_x_unEnableColor, ContextCompat.getColor(context, R.color.c_transparent));
+        int disableColor = ta.getColor(R.styleable.XRoundButton_x_disableColor, ContextCompat.getColor(context, R.color.c_transparent));
         int pressColor = ta.getColor(R.styleable.XRoundButton_x_pressColor, ContextCompat.getColor(context, R.color.c_transparent));
         boolean isEnable = ta.getBoolean(R.styleable.XRoundButton_x_enable, true);
         int fontEnableColor = ta.getColor(R.styleable.XRoundButton_x_fontEnableColor, ContextCompat.getColor(context, android.R.color.black));
         int fontPressColor = ta.getColor(R.styleable.XRoundButton_x_fontPressColor, ContextCompat.getColor(context, android.R.color.black));
-        int fontUnEnableColor = ta.getColor(R.styleable.XRoundButton_x_fontUnEnableColor, ContextCompat.getColor(context, android.R.color.black));
+        int fontDisableColor = ta.getColor(R.styleable.XRoundButton_x_fontDisableColor, ContextCompat.getColor(context, android.R.color.black));
 
         ta.recycle();
+        if (colorBg != null) {
+            mShowBgColor = true;
+        }
         setBgData(colorBg);
         setStrokeData(borderWidth, colorBorder);
-        if (isEnable) {
-            setColor(enableColor);
-        } else {
-            setColor(unEnableColor);
+        if(!mShowBgColor) {
+            if (isEnable) {
+                setColor(enableColor);
+            } else {
+                setColor(disableColor);
+            }
         }
         if (mRadiusTopLeft > 0 || mRadiusTopRight > 0 || mRadiusBottomLeft > 0 || mRadiusBottomRight > 0) {
             float[] radii = new float[]{
@@ -243,10 +250,10 @@ public class XRoundButtonDrawable extends GradientDrawable {
         }
         mPressColor = pressColor;
         mEnableColor = enableColor;
-        mUnEnableColor = unEnableColor;
+        mDisableColor = disableColor;
         mFontPressColor = fontPressColor;
         mFontEnableColor = fontEnableColor;
-        mFontUnEnableColor = fontUnEnableColor;
+        mFontUnEnableColor = fontDisableColor;
         setIsRadiusAdjustBounds(isRadiusAdjustBounds);
         setEnable(isEnable);
     }
@@ -254,7 +261,7 @@ public class XRoundButtonDrawable extends GradientDrawable {
 
     private int mPressColor;
     private int mEnableColor;
-    private int mUnEnableColor;
+    private int mDisableColor;
     private int mFontEnableColor;
     private int mFontPressColor;
     private int mFontUnEnableColor;
@@ -281,8 +288,8 @@ public class XRoundButtonDrawable extends GradientDrawable {
         return this;
     }
 
-    public XRoundButtonDrawable setUnEnableColor(int unEnableColor) {
-        mUnEnableColor = ContextCompat.getColor(mReference.get().getContext(), unEnableColor);
+    public XRoundButtonDrawable setDisableColor(int disableColor) {
+        mDisableColor = ContextCompat.getColor(mReference.get().getContext(), disableColor);
         isEnable = false;
         return this;
     }
@@ -299,7 +306,7 @@ public class XRoundButtonDrawable extends GradientDrawable {
         return this;
     }
 
-    public XRoundButtonDrawable setFontUnEnableColor(int fontUnEnableColor) {
+    public XRoundButtonDrawable setFontDisableColor(int fontUnEnableColor) {
         mFontUnEnableColor = ContextCompat.getColor(mReference.get().getContext(), fontUnEnableColor);
         isEnable = false;
         return this;
@@ -314,7 +321,7 @@ public class XRoundButtonDrawable extends GradientDrawable {
     }
 
     public int getUnEnableColor() {
-        return mUnEnableColor;
+        return mDisableColor;
     }
 
     public int getFontEnableColor() {

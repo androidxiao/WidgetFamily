@@ -16,12 +16,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 
-import com.xutils.kotyo.XResHelper;
-
 import java.lang.ref.WeakReference;
 
 import family.widget.com.roundwidget.R;
-
+import kotyoxutils.XResHelper;
 
 
 /**
@@ -135,7 +133,6 @@ public class XLayoutHelper implements XLayout {
                 } else if (index == R.styleable.XLayout_x_leftDividerColor) {
                     mLeftDividerColor = ta.getColor(index, mLeftDividerColor);
                 } else if (index == R.styleable.XLayout_x_leftDividerWidth) {
-                    //TODO 这里修改了
                     mLeftDividerWidth = ta.getDimensionPixelSize(index, mLeftDividerWidth);
                 } else if (index == R.styleable.XLayout_x_leftDividerInsetTop) {
                     mLeftDividerInsetTop = ta.getDimensionPixelSize(index, mLeftDividerInsetTop);
@@ -158,7 +155,6 @@ public class XLayoutHelper implements XLayout {
                 } else if (index == R.styleable.XLayout_x_outerNormalColor) {
                     mOuterNormalColor = ta.getColor(index, mOuterNormalColor);
                 } else if (index == R.styleable.XLayout_x_hideRadiusSide) {
-                    //TODO 这里修改了
                     mHideRadiusSide = ta.getInt(index, mHideRadiusSide);
                 } else if (index == R.styleable.XLayout_x_showBorderOnlyBeforeL) {
                     mIsShowBorderOnlyBeforeL = ta.getBoolean(index, mIsShowBorderOnlyBeforeL);
@@ -573,7 +569,7 @@ public class XLayoutHelper implements XLayout {
         }
 
         if (mLeftDividerWidth > 0) {
-            mDividerPaint.setStrokeWidth(mLeftDividerWidth);
+            mDividerPaint.setStrokeWidth(mLeftDividerWidth * 2);//不 x2 的话，只能显示值的一半，原因未知
             mDividerPaint.setColor(mLeftDividerColor);
             if (mLeftDividerAlpha < 255) {
                 mDividerPaint.setAlpha(mLeftDividerAlpha);
@@ -582,7 +578,7 @@ public class XLayoutHelper implements XLayout {
         }
 
         if (mRightDividerWidth > 0) {
-            mDividerPaint.setStrokeWidth(mRightDividerWidth);
+            mDividerPaint.setStrokeWidth(mRightDividerWidth * 2);//不 x2 的话，只能显示值的一半，原因未知
             mDividerPaint.setColor(mRightDividerColor);
             if (mRightDividerAlpha < 255) {
                 mDividerPaint.setAlpha(mRightDividerAlpha);

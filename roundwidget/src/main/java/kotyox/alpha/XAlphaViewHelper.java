@@ -2,11 +2,10 @@ package kotyox.alpha;
 
 import android.view.View;
 
-import com.xutils.kotyo.XResHelper;
-
 import java.lang.ref.WeakReference;
 
 import family.widget.com.roundwidget.R;
+import kotyoxutils.XResHelper;
 
 
 public class XAlphaViewHelper {
@@ -81,6 +80,7 @@ public class XAlphaViewHelper {
 
     /**
      * 设置是否在 press 时改变透明度
+     *
      * @param changeAlphaWhenPress 是否要在 press 时改变透明度
      */
     public void setChangeAlphaWhenPress(boolean changeAlphaWhenPress) {
@@ -89,6 +89,7 @@ public class XAlphaViewHelper {
 
     /**
      * 设置是否要在 disabled 时改变透明度
+     *
      * @param changeAlphaWhenDisable 是否要在 disabled 时改变透明度
      */
     public void setChangeAlphaWhenDisable(boolean changeAlphaWhenDisable) {

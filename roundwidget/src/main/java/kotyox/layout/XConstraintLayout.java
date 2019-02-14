@@ -20,11 +20,11 @@ public class XConstraintLayout extends XAlphaConstraintLayout implements XLayout
     private XLayoutHelper mLayoutHelper;
 
     public XConstraintLayout(@NonNull Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public XConstraintLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
 
     public XConstraintLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -137,7 +137,7 @@ public class XConstraintLayout extends XAlphaConstraintLayout implements XLayout
 
     @Override
     public void setRadiusAndShadow(int radius, int hideRadiusSide, int shadowElevation, int shadowColor, float shadowAlpha) {
-        mLayoutHelper.setRadiusAndShadow(radius, hideRadiusSide, shadowElevation,  shadowColor, shadowAlpha);
+        mLayoutHelper.setRadiusAndShadow(radius, hideRadiusSide, shadowElevation, shadowColor, shadowAlpha);
     }
 
     @Override

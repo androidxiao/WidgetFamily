@@ -1,4 +1,4 @@
-package kotyox.roundwidget;
+package kotyox.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -14,6 +14,10 @@ import family.widget.com.roundwidget.R;
 
 
 /**
+ * Created by wei.
+ * Date: 2019/1/15 下午10:05
+ * Description:
+ * <p>
  * 可以方便生成圆角矩形/圆形 {@link android.graphics.drawable.Drawable}
  * <p>
  * <ul>

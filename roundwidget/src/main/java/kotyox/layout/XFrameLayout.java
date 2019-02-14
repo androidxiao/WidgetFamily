@@ -20,11 +20,11 @@ public class XFrameLayout extends XAlphaFrameLayout implements XLayout {
     private XLayoutHelper mLayoutHelper;
 
     public XFrameLayout(@NonNull Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public XFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
 
     public XFrameLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -137,7 +137,7 @@ public class XFrameLayout extends XAlphaFrameLayout implements XLayout {
 
     @Override
     public void setRadiusAndShadow(int radius, int hideRadiusSide, int shadowElevation, int shadowColor, float shadowAlpha) {
-        mLayoutHelper.setRadiusAndShadow(radius, hideRadiusSide, shadowElevation,  shadowColor, shadowAlpha);
+        mLayoutHelper.setRadiusAndShadow(radius, hideRadiusSide, shadowElevation, shadowColor, shadowAlpha);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package kotyox.roundwidget;
+package kotyox.widget;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
-import com.xutils.kotyo.XViewHelper;
+import kotyoxutils.XViewHelper;
 
 
 /**
@@ -45,5 +45,9 @@ public class XRoundLinearLayout extends LinearLayout {
         mBg.setIsTouchPass(false);
     }
 
-
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        mBg = null;
+    }
 }

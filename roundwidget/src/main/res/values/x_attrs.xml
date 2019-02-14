@@ -21,7 +21,7 @@
     <!-- 正常背景色 -->
     <attr name="x_enableColor" format="color"/>
     <!-- 不可用背景色 -->
-    <attr name="x_unEnableColor" format="color"/>
+    <attr name="x_disableColor" format="color"/>
     <!-- 按下背景色 -->
     <attr name="x_pressColor" format="color"/>
     <!-- 控件是否可用 -->
@@ -31,7 +31,7 @@
     <!-- 按下字体的颜色 -->
     <attr name="x_fontPressColor" format="color"/>
     <!-- 不可用时字体的颜色 -->
-    <attr name="x_fontUnEnableColor" format="color"/>
+    <attr name="x_fontDisableColor" format="color"/>
 
     <attr name="XButtonStyle" format="reference"/>
 
@@ -46,12 +46,12 @@
         <attr name="x_radiusBottomLeft"/>
         <attr name="x_radiusBottomRight"/>
         <attr name="x_enableColor"/>
-        <attr name="x_unEnableColor"/>
+        <attr name="x_disableColor"/>
         <attr name="x_pressColor"/>
         <attr name="x_enable"/>
         <attr name="x_fontEnableColor"/>
         <attr name="x_fontPressColor"/>
-        <attr name="x_fontUnEnableColor"/>
+        <attr name="x_fontDisableColor"/>
     </declare-styleable>
 
     <declare-styleable name="XRoundLayout">
@@ -65,7 +65,7 @@
         <attr name="x_radiusBottomLeft"/>
         <attr name="x_radiusBottomRight"/>
         <attr name="x_enableColor"/>
-        <attr name="x_unEnableColor"/>
+        <attr name="x_disableColor"/>
         <attr name="x_pressColor"/>
         <attr name="x_enable"/>
     </declare-styleable>

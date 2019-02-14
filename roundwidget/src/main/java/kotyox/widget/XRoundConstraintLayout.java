@@ -1,14 +1,12 @@
-package kotyox.roundwidget;
+package kotyox.widget;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
-import com.xutils.kotyo.XViewHelper;
-
 import kotyox.alpha.XAlphaConstraintLayout;
-
+import kotyoxutils.XViewHelper;
 
 
 /**
@@ -47,4 +45,9 @@ public class XRoundConstraintLayout extends XAlphaConstraintLayout {
         mBg.setIsTouchPass(false);
     }
 
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        mBg = null;
+    }
 }

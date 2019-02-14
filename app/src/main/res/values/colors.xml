@@ -6,4 +6,11 @@
     <color name="c_1aad19">#1aad19</color>
     <color name="c_179c16">#179c16</color>
     <color name="c_ffffff">#ffffff</color>
+    <color name="c_normal">#09bb07</color>
+    <color name="c_press">#cc09bb07</color>
+    <color name="c_disable">#e509bb07</color>
+    <color name="c_font_normal">#ffffff</color>
+    <color name="c_font_press">#000000</color>
+    <color name="c_font_disable">#576b95</color>
+    <color name="c_c1c1c1">#c1c1c1</color>
 </resources>

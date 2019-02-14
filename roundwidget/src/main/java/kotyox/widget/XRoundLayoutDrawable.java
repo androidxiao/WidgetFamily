@@ -1,4 +1,4 @@
-package kotyox.roundwidget;
+package kotyox.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -12,8 +12,6 @@ import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-
-import com.xutils.kotyo.XViewHelper;
 
 import java.lang.ref.WeakReference;
 
@@ -41,6 +39,7 @@ public class XRoundLayoutDrawable extends GradientDrawable {
     private ColorStateList mStrokeColors;
     private boolean mIsTouchPass = true;
     private WeakReference<View> mReference;
+    private boolean mShowBgColor;
 
     public XRoundLayoutDrawable(View view) {
         mReference = new WeakReference<>(view);
@@ -69,19 +68,21 @@ public class XRoundLayoutDrawable extends GradientDrawable {
      * View 的 touch 事件
      */
     public void setTouchListener() {
-        mReference.get().setEnabled(isEnable);
-        if (isEnable) {
-            setColor(mEnableColor);
-            mReference.get().setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    XViewHelper.setBackgroundKeepingPadding(mReference.get(), XRoundLayoutDrawable.this);
-                    return setBgColor(event.getAction());
-                }
-            });
-        } else {
-            setColor(mUnEnableColor);
-        }
+//        if (!mShowBgColor) {
+//            mReference.get().setEnabled(isEnable);
+//            if (isEnable) {
+//                setColor(mEnableColor);
+//                mReference.get().setOnTouchListener(new View.OnTouchListener() {
+//                    @Override
+//                    public boolean onTouch(View v, MotionEvent event) {
+//                        XViewHelper.setBackgroundKeepingPadding(mReference.get(), XRoundLayoutDrawable.this);
+//                        return setBgColor(event.getAction());
+//                    }
+//                });
+//            } else {
+//                setColor(mDisableColor);
+//            }
+//        }
     }
 
 
@@ -117,7 +118,7 @@ public class XRoundLayoutDrawable extends GradientDrawable {
         setTouchListener();
         return this;
     }
-    
+
 
     /**
      * 设置按钮的描边粗细和颜色
@@ -193,17 +194,22 @@ public class XRoundLayoutDrawable extends GradientDrawable {
         int mRadiusBottomLeft = ta.getDimensionPixelSize(R.styleable.XRoundLayout_x_radiusBottomLeft, 0);
         int mRadiusBottomRight = ta.getDimensionPixelSize(R.styleable.XRoundLayout_x_radiusBottomRight, 0);
         int enableColor = ta.getColor(R.styleable.XRoundLayout_x_enableColor, ContextCompat.getColor(context, R.color.c_transparent));
-        int unEnableColor = ta.getColor(R.styleable.XRoundLayout_x_unEnableColor, ContextCompat.getColor(context, R.color.c_transparent));
+        int disableColor = ta.getColor(R.styleable.XRoundLayout_x_disableColor, ContextCompat.getColor(context, R.color.c_transparent));
         int pressColor = ta.getColor(R.styleable.XRoundLayout_x_pressColor, ContextCompat.getColor(context, R.color.c_transparent));
-        boolean isEnable = ta.getBoolean(R.styleable.XRoundButton_x_enable, true);
+        boolean isEnable = ta.getBoolean(R.styleable.XRoundLayout_x_enable, true);
 
         ta.recycle();
+        if (colorBg != null) {
+            mShowBgColor = true;
+        }
         setBgData(colorBg);
         setStrokeData(borderWidth, colorBorder);
-        if (isEnable) {
-            setColor(enableColor);
-        } else {
-            setColor(unEnableColor);
+        if (!mShowBgColor) {
+            if (isEnable) {
+                setColor(enableColor);
+            } else {
+                setColor(disableColor);
+            }
         }
         if (mRadiusTopLeft > 0 || mRadiusTopRight > 0 || mRadiusBottomLeft > 0 || mRadiusBottomRight > 0) {
             float[] radii = new float[]{
@@ -223,14 +229,14 @@ public class XRoundLayoutDrawable extends GradientDrawable {
         setIsRadiusAdjustBounds(isRadiusAdjustBounds);
         mEnableColor = enableColor;
         mPressColor = pressColor;
-        mUnEnableColor = unEnableColor;
+        mDisableColor = disableColor;
         setEnable(isEnable);
     }
 
 
     private int mPressColor;
     private int mEnableColor;
-    private int mUnEnableColor;
+    private int mDisableColor;
     private boolean isEnable;
 
 
@@ -255,8 +261,8 @@ public class XRoundLayoutDrawable extends GradientDrawable {
         return this;
     }
 
-    public XRoundLayoutDrawable setUnEnableColor(int unEnableColor) {
-        mUnEnableColor = ContextCompat.getColor(mReference.get().getContext(), unEnableColor);
+    public XRoundLayoutDrawable setDisableColor(int disableColor) {
+        mDisableColor = ContextCompat.getColor(mReference.get().getContext(), disableColor);
         isEnable = false;
         return this;
     }
@@ -269,10 +275,9 @@ public class XRoundLayoutDrawable extends GradientDrawable {
         return mEnableColor;
     }
 
-    public int getUnEnableColor() {
-        return mUnEnableColor;
+    public int getDisableColor() {
+        return mDisableColor;
     }
-    
 
 
 }

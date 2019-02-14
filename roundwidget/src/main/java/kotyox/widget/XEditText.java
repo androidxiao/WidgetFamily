@@ -1,10 +1,10 @@
-package kotyox.roundwidget;
+package kotyox.widget;
 
 import android.content.Context;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 
-import com.xutils.kotyo.XViewHelper;
+import kotyoxutils.XViewHelper;
 
 
 /**
@@ -17,11 +17,11 @@ public class XEditText extends AppCompatEditText {
     private XEditTextDrawable mBg;
 
     public XEditText(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public XEditText(Context context, AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
 
     public XEditText(Context context, AttributeSet attrs, int defStyleAttr) {

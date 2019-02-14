@@ -19,11 +19,11 @@ public class XRelativeLayout extends XAlphaRelativeLayout implements XLayout {
     private XLayoutHelper mLayoutHelper;
 
     public XRelativeLayout(@NonNull Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public XRelativeLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
 
     public XRelativeLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -136,7 +136,7 @@ public class XRelativeLayout extends XAlphaRelativeLayout implements XLayout {
 
     @Override
     public void setRadiusAndShadow(int radius, int hideRadiusSide, int shadowElevation, int shadowColor, float shadowAlpha) {
-        mLayoutHelper.setRadiusAndShadow(radius, hideRadiusSide, shadowElevation,  shadowColor, shadowAlpha);
+        mLayoutHelper.setRadiusAndShadow(radius, hideRadiusSide, shadowElevation, shadowColor, shadowAlpha);
     }
 
     @Override

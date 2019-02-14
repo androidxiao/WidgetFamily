@@ -1,13 +1,11 @@
-package kotyox.roundwidget;
+package kotyox.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.xutils.kotyo.XViewHelper;
-
 import family.widget.com.roundwidget.R;
 import kotyox.alpha.XAlphaButton;
-
+import kotyoxutils.XViewHelper;
 
 
 /**
@@ -21,6 +19,7 @@ import kotyox.alpha.XAlphaButton;
  * </p>
  * <p>
  * 如果在 xml 中指定圆角、边框颜色、边框粗细、背景色等值，采用 xml 属性
+ * {@link R.styleable#XRoundButton}
  * </p>
  * <p>
  * 如需在 Java 中指定以上属性，需要通过 {@link #getBackground()} 获取 {@link XRoundButtonDrawable} 对象，
@@ -29,25 +28,26 @@ import kotyox.alpha.XAlphaButton;
  * <p>
  * 注意： Java 使用 <code>android:enabled</code> 为 false，请设置该类提供的 <code>setIsEnable</code> 方法；
  * 如果要设置按钮背景和字体按下效果，请使用该类提供的 <code>setPressedColor,set...</code> 方法；
- * 最后记得调用 {@link XRoundButtonDrawable#build()} 方法，否则设置的属性不起作用。
+ * 最后记得调用 <code>build()</code> 方法，否则设置的属性不起作用。
+ *
  * @see XRoundButtonDrawable
  */
-public class XRoundButton extends XAlphaButton {
+public class XRoundTextView extends XAlphaButton {
 
     private XRoundButtonDrawable mBg;
 
 
-    public XRoundButton(Context context) {
+    public XRoundTextView(Context context) {
         super(context);
         init(context, null, 0);
     }
 
-    public XRoundButton(Context context, AttributeSet attrs) {
+    public XRoundTextView(Context context, AttributeSet attrs) {
         super(context, attrs, R.attr.XButtonStyle);
         init(context, attrs, R.attr.XButtonStyle);
     }
 
-    public XRoundButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public XRoundTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr);
     }
@@ -67,6 +67,12 @@ public class XRoundButton extends XAlphaButton {
     public void setOnClickListener(OnClickListener l) {
         super.setOnClickListener(l);
         mBg.setIsTouchPass(false);
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        mBg = null;
     }
 
 }

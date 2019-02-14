@@ -7,7 +7,6 @@ import android.util.AttributeSet;
 public class XAlphaButton extends AppCompatButton {
 
 
-
     private XAlphaViewHelper mAlphaViewHelper;
 
     public XAlphaButton(Context context) {
@@ -37,6 +36,7 @@ public class XAlphaButton extends AppCompatButton {
 
     /**
      * 设置是否要在 press 时改变透明度
+     *
      * @param changeAlphaWhenPress
      */
     public void setChangeAlphaWhenPress(boolean changeAlphaWhenPress) {
@@ -45,6 +45,7 @@ public class XAlphaButton extends AppCompatButton {
 
     /**
      * 设置是否要在 disabled 时改变透明度
+     *
      * @param changeAlphaWhenDisable
      */
     public void setChangeAlphaWhenDisable(boolean changeAlphaWhenDisable) {

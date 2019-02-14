@@ -75,7 +75,8 @@
 
         </RadioGroup>
 
-        <kotyox.roundwidget.XRoundButton
+        <kotyox.widget.XRoundButton
+            android:id="@+id/btn"
             android:layout_width="match_parent"
             android:layout_height="47dp"
             android:layout_margin="@dimen/d_16"
@@ -87,7 +88,7 @@
             app:x_pressColor="@color/c_179c16"
             app:x_radius="@dimen/d_5"/>
 
-        <kotyox.roundwidget.XEditText
+        <kotyox.widget.XEditText
             android:layout_width="200dp"
             android:layout_height="30dp"
             app:x_borderColor="@color/colorAccent"
