@@ -16,6 +16,7 @@ import android.view.View;
 import java.lang.ref.WeakReference;
 
 import family.widget.com.roundwidget.R;
+import kotyoxutils.XViewHelper;
 
 
 /**
@@ -68,21 +69,21 @@ public class XRoundLayoutDrawable extends GradientDrawable {
      * View 的 touch 事件
      */
     public void setTouchListener() {
-//        if (!mShowBgColor) {
-//            mReference.get().setEnabled(isEnable);
-//            if (isEnable) {
-//                setColor(mEnableColor);
-//                mReference.get().setOnTouchListener(new View.OnTouchListener() {
-//                    @Override
-//                    public boolean onTouch(View v, MotionEvent event) {
-//                        XViewHelper.setBackgroundKeepingPadding(mReference.get(), XRoundLayoutDrawable.this);
-//                        return setBgColor(event.getAction());
-//                    }
-//                });
-//            } else {
-//                setColor(mDisableColor);
-//            }
-//        }
+        if (!mShowBgColor) {
+            mReference.get().setEnabled(isEnable);
+            if (isEnable) {
+                setColor(mEnableColor);
+                mReference.get().setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        XViewHelper.setBackgroundKeepingPadding(mReference.get(), XRoundLayoutDrawable.this);
+                        return setBgColor(event.getAction());
+                    }
+                });
+            } else {
+                setColor(mDisableColor);
+            }
+        }
     }
 
 
@@ -215,8 +216,8 @@ public class XRoundLayoutDrawable extends GradientDrawable {
             float[] radii = new float[]{
                     mRadiusTopLeft, mRadiusTopLeft,
                     mRadiusTopRight, mRadiusTopRight,
-                    mRadiusBottomLeft, mRadiusBottomLeft,
-                    mRadiusBottomRight, mRadiusBottomRight
+                    mRadiusBottomRight, mRadiusBottomRight,
+                    mRadiusBottomLeft, mRadiusBottomLeft
             };
             setCornerRadii(radii);
             isRadiusAdjustBounds = false;

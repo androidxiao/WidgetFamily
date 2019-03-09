@@ -30,6 +30,7 @@ public class XEditTextDrawable extends GradientDrawable {
     private ColorStateList mFillColors;
     private int mStrokeWidth = 0;
     private ColorStateList mStrokeColors;
+    private boolean mShowBgColor;
 
 
     /**
@@ -111,15 +112,20 @@ public class XEditTextDrawable extends GradientDrawable {
         int enableColor = ta.getColor(R.styleable.XRoundButton_x_enableColor, ContextCompat.getColor(context, R.color.c_transparent));
 
         ta.recycle();
+        if (colorBg != null) {
+            mShowBgColor = true;
+        }
         setBgData(colorBg);
         setStrokeData(borderWidth, colorBorder);
-        setColor(enableColor);
+        if (!mShowBgColor) {
+            setColor(enableColor);
+        }
         if (mRadiusTopLeft > 0 || mRadiusTopRight > 0 || mRadiusBottomLeft > 0 || mRadiusBottomRight > 0) {
             float[] radii = new float[]{
                     mRadiusTopLeft, mRadiusTopLeft,
                     mRadiusTopRight, mRadiusTopRight,
-                    mRadiusBottomLeft, mRadiusBottomLeft,
-                    mRadiusBottomRight, mRadiusBottomRight
+                    mRadiusBottomRight, mRadiusBottomRight,
+                    mRadiusBottomLeft, mRadiusBottomLeft
             };
             setCornerRadii(radii);
         } else {

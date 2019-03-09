@@ -112,4 +112,24 @@
         <attr name="x_outlineInsetBottom" format="dimension"/>
         <attr name="x_outlineExcludePadding" format="boolean"/>
     </declare-styleable>
+
+    <declare-styleable name="XStateDrawable">
+        <attr name="x_stateSelect" format="reference"/>
+        <attr name="x_statePressed" format="reference"/>
+        <attr name="x_stateEnabled" format="reference"/>
+        <attr name="x_statePressedC" format="color"/>
+        <attr name="x_stateEnabledC" format="color"/>
+        <attr name="x_stateDisableC" format="color"/>
+        <attr name="x_stateCheckC" format="color"/>
+        <attr name="x_stateDisabled" format="reference"/>
+        <attr name="x_stateCheck" format="reference"/>
+        <attr name="x_stateUnCheck" format="reference"/>
+        <attr name="x_stateDirection" format="enum">
+            <enum name="left" value="1"/>
+            <enum name="top" value="2"/>
+            <enum name="right" value="3"/>
+            <enum name="bottom" value="4"/>
+        </attr>
+    </declare-styleable>
+
 </resources>

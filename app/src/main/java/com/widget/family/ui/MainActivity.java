@@ -1,9 +1,11 @@
-package com.widget.family;
+package com.widget.family.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import com.widget.family.R;
 
 public class MainActivity extends AppCompatActivity {
 

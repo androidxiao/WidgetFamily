@@ -237,8 +237,8 @@ public class XRoundButtonDrawable extends GradientDrawable {
             float[] radii = new float[]{
                     mRadiusTopLeft, mRadiusTopLeft,
                     mRadiusTopRight, mRadiusTopRight,
-                    mRadiusBottomLeft, mRadiusBottomLeft,
-                    mRadiusBottomRight, mRadiusBottomRight
+                    mRadiusBottomRight, mRadiusBottomRight,
+                    mRadiusBottomLeft, mRadiusBottomLeft
             };
             setCornerRadii(radii);
             isRadiusAdjustBounds = false;

@@ -13,7 +13,7 @@ ext{
 
     customWidget=[
             roundWidgetVersionCode:1,
-            roundWidgetVersionName:"1.0.0",
+            roundWidgetVersionName:"1.0.2",
     ]
     dependencies = [
             design             : "com.android.support:design:${android.supportLibVersion}",

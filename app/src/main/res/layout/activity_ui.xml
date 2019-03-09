@@ -137,7 +137,7 @@
                 android:text="我是 LinearLayout，通过自定义属性就可以设置，上下左右分隔线、边框颜色、边框大小、圆角值、背景点击效果、以及阴影大小"/>
         </kotyox.layout.XLinearLayout>
 
-        <kotyox.widget.XEditText
+        <kotyox.widget.XRoundEditText
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:layout_margin="20dp"
@@ -151,7 +151,7 @@
             app:x_enableColor="@color/c_c1c1c1"
             app:x_radius="10dp">
 
-        </kotyox.widget.XEditText>
+        </kotyox.widget.XRoundEditText>
 
         <kotyox.widget.XRoundConstraintLayout
             android:layout_width="match_parent"

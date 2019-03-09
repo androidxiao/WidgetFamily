@@ -13,4 +13,8 @@
     <color name="c_font_press">#000000</color>
     <color name="c_font_disable">#576b95</color>
     <color name="c_c1c1c1">#c1c1c1</color>
+    <color name="c_073680">#073680</color>
+    <color name="c_DFF1FE">#DFF1FE</color>
+    <color name="c_800736">#800736</color>
+    <color name="first_drop_down_text_view_title">#800736</color>
 </resources>

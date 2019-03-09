@@ -2,15 +2,38 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:state="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+         <kotyox.statedrawable.XStateImageView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:clickable="true"
+             state:x_statePressed="@mipmap/cb_sel"
+             state:x_stateEnabled="@mipmap/cb_unsel"/>
+
+        <kotyox.statedrawable.XStateCheckbox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:x_statePressed="@mipmap/cb_sel"
+            app:x_stateCheck="@mipmap/cb_sel"
+            android:text="同意本协议"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            app:x_stateDirection="top"
+            app:x_statePressedC="@color/c_800736"
+            app:x_stateEnabledC="@color/c_1aad19"
+            app:x_stateCheckC="@color/c_c1c1c1"
+            app:x_stateUnCheck="@mipmap/cb_unsel"/>
 
         <TextView
             android:layout_width="100dp"
@@ -88,7 +111,7 @@
             app:x_pressColor="@color/c_179c16"
             app:x_radius="@dimen/d_5"/>
 
-        <kotyox.widget.XEditText
+        <kotyox.widget.XRoundEditText
             android:layout_width="200dp"
             android:layout_height="30dp"
             app:x_borderColor="@color/colorAccent"

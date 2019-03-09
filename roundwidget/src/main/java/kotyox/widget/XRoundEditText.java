@@ -12,19 +12,19 @@ import kotyoxutils.XViewHelper;
  * Date: 2019/1/10 下午10:05
  * Description:
  */
-public class XEditText extends AppCompatEditText {
+public class XRoundEditText extends AppCompatEditText {
 
     private XEditTextDrawable mBg;
 
-    public XEditText(Context context) {
+    public XRoundEditText(Context context) {
         this(context, null);
     }
 
-    public XEditText(Context context, AttributeSet attrs) {
+    public XRoundEditText(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public XEditText(Context context, AttributeSet attrs, int defStyleAttr) {
+    public XRoundEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mBg = new XEditTextDrawable();
         mBg.fromAttributeSet(context, attrs, defStyleAttr);
