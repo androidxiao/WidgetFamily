@@ -110,7 +110,7 @@ public interface XLayout {
      * @param radius
      * @param hideRadiusSide
      */
-    void setRadius(int radius, @XLayoutHelper.HideRadiusSide int hideRadiusSide);
+    void setRadius(int radius, @HideRadiusSide int hideRadiusSide);
 
     /**
      * 获取圆角

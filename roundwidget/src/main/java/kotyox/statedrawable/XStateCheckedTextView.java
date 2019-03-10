@@ -1,15 +1,17 @@
 package kotyox.statedrawable;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatCheckBox;
+import android.support.v7.widget.AppCompatCheckedTextView;
 import android.util.AttributeSet;
+
+import kotyox.statedrawable.state.XStateCheckedTextViewDrawable;
 
 /**
  * Created by wei.
  * Date: 2019/3/5 下午11:34
  * Description:
  */
-public class XStateCheckedTextView extends AppCompatCheckBox {
+public class XStateCheckedTextView extends AppCompatCheckedTextView {
 
     public XStateCheckedTextView(Context context) {
         this(context,null);
@@ -25,7 +27,7 @@ public class XStateCheckedTextView extends AppCompatCheckBox {
     }
 
     private void init(Context context,AttributeSet attrs,int defStyleAttr){
-        XStateDrawable stateDrawable = new XStateDrawable(this);
+        XStateCheckedTextViewDrawable stateDrawable = new XStateCheckedTextViewDrawable(this);
         stateDrawable.fromAttributeSet(context, attrs, defStyleAttr);
     }
 }

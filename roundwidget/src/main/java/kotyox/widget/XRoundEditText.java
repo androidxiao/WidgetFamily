@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 
+import kotyox.widget.roundrawable.XEditTextDrawable;
 import kotyoxutils.XViewHelper;
 
 

@@ -27,7 +27,7 @@ import kotyoxutils.XResHelper;
  * Date: 2019/1/6 下午6:49
  * Description:
  */
-public class XLayoutHelper implements XLayout {
+public class XConstraintLayoutHelper implements XLayout {
 
     private Context mContext;
 
@@ -90,7 +90,7 @@ public class XLayoutHelper implements XLayout {
     private int mOutlineInsetTop = 0;
     private int mOutlineInsetBottom = 0;
 
-    public XLayoutHelper(Context context, AttributeSet attrs, int defAttr, View owner) {
+    public XConstraintLayoutHelper(Context context, AttributeSet attrs, int defAttr, View owner) {
         mContext = context;
         mOwner = new WeakReference<>(owner);
         mBottomDividerColor = mTopDividerColor = ContextCompat.getColor(context, R.color.x_config_color_separator);
@@ -102,77 +102,77 @@ public class XLayoutHelper implements XLayout {
         int radius = 0, shadow = 0;
         boolean useThemeGeneralShadowElevation = false;
         if (attrs != null || defAttr != 0) {
-            TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.XLayout, defAttr, 0);
+            TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.XConstraintLayout, defAttr, 0);
             int count = ta.getIndexCount();
             for (int i = 0; i < count; i++) {
                 int index = ta.getIndex(i);
-                if (index == R.styleable.XLayout_android_maxWidth) {
+                if (index == R.styleable.XConstraintLayout_android_maxWidth) {
                     mWidthLimit = ta.getDimensionPixelSize(index, mWidthLimit);
-                } else if (index == R.styleable.XLayout_android_maxHeight) {
+                } else if (index == R.styleable.XConstraintLayout_android_maxHeight) {
                     mHeightLimit = ta.getDimensionPixelSize(index, mHeightLimit);
-                } else if (index == R.styleable.XLayout_android_minWidth) {
+                } else if (index == R.styleable.XConstraintLayout_android_minWidth) {
                     mWidthMini = ta.getDimensionPixelSize(index, mWidthMini);
-                } else if (index == R.styleable.XLayout_android_minHeight) {
+                } else if (index == R.styleable.XConstraintLayout_android_minHeight) {
                     mHeightMini = ta.getDimensionPixelSize(index, mHeightMini);
-                } else if (index == R.styleable.XLayout_x_topDividerColor) {
+                } else if (index == R.styleable.XConstraintLayout_x_topDividerColor) {
                     mTopDividerColor = ta.getColor(index, mTopDividerColor);
-                } else if (index == R.styleable.XLayout_x_topDividerHeight) {
+                } else if (index == R.styleable.XConstraintLayout_x_topDividerHeight) {
                     mTopDividerHeight = ta.getDimensionPixelSize(index, mTopDividerHeight);
-                } else if (index == R.styleable.XLayout_x_topDividerInsetLeft) {
+                } else if (index == R.styleable.XConstraintLayout_x_topDividerInsetLeft) {
                     mTopDividerInsetLeft = ta.getDimensionPixelSize(index, mTopDividerInsetLeft);
-                } else if (index == R.styleable.XLayout_x_topDividerInsetRight) {
+                } else if (index == R.styleable.XConstraintLayout_x_topDividerInsetRight) {
                     mTopDividerInsetRight = ta.getDimensionPixelSize(index, mTopDividerInsetRight);
-                } else if (index == R.styleable.XLayout_x_bottomDividerColor) {
+                } else if (index == R.styleable.XConstraintLayout_x_bottomDividerColor) {
                     mBottomDividerColor = ta.getColor(index, mBottomDividerColor);
-                } else if (index == R.styleable.XLayout_x_bottomDividerHeight) {
+                } else if (index == R.styleable.XConstraintLayout_x_bottomDividerHeight) {
                     mBottomDividerHeight = ta.getDimensionPixelSize(index, mBottomDividerHeight);
-                } else if (index == R.styleable.XLayout_x_bottomDividerInsetLeft) {
+                } else if (index == R.styleable.XConstraintLayout_x_bottomDividerInsetLeft) {
                     mBottomDividerInsetLeft = ta.getDimensionPixelSize(index, mBottomDividerInsetLeft);
-                } else if (index == R.styleable.XLayout_x_bottomDividerInsetRight) {
+                } else if (index == R.styleable.XConstraintLayout_x_bottomDividerInsetRight) {
                     mBottomDividerInsetRight = ta.getDimensionPixelSize(index, mBottomDividerInsetRight);
-                } else if (index == R.styleable.XLayout_x_leftDividerColor) {
+                } else if (index == R.styleable.XConstraintLayout_x_leftDividerColor) {
                     mLeftDividerColor = ta.getColor(index, mLeftDividerColor);
-                } else if (index == R.styleable.XLayout_x_leftDividerWidth) {
+                } else if (index == R.styleable.XConstraintLayout_x_leftDividerWidth) {
                     mLeftDividerWidth = ta.getDimensionPixelSize(index, mLeftDividerWidth);
-                } else if (index == R.styleable.XLayout_x_leftDividerInsetTop) {
+                } else if (index == R.styleable.XConstraintLayout_x_leftDividerInsetTop) {
                     mLeftDividerInsetTop = ta.getDimensionPixelSize(index, mLeftDividerInsetTop);
-                } else if (index == R.styleable.XLayout_x_leftDividerInsetBottom) {
+                } else if (index == R.styleable.XConstraintLayout_x_leftDividerInsetBottom) {
                     mLeftDividerInsetBottom = ta.getDimensionPixelSize(index, mLeftDividerInsetBottom);
-                } else if (index == R.styleable.XLayout_x_rightDividerColor) {
+                } else if (index == R.styleable.XConstraintLayout_x_rightDividerColor) {
                     mRightDividerColor = ta.getColor(index, mRightDividerColor);
-                } else if (index == R.styleable.XLayout_x_rightDividerWidth) {
+                } else if (index == R.styleable.XConstraintLayout_x_rightDividerWidth) {
                     mRightDividerWidth = ta.getDimensionPixelSize(index, mRightDividerWidth);
-                } else if (index == R.styleable.XLayout_x_rightDividerInsetTop) {
+                } else if (index == R.styleable.XConstraintLayout_x_rightDividerInsetTop) {
                     mRightDividerInsetTop = ta.getDimensionPixelSize(index, mRightDividerInsetTop);
-                } else if (index == R.styleable.XLayout_x_rightDividerInsetBottom) {
+                } else if (index == R.styleable.XConstraintLayout_x_rightDividerInsetBottom) {
                     mRightDividerInsetBottom = ta.getDimensionPixelSize(index, mRightDividerInsetBottom);
-                } else if (index == R.styleable.XLayout_x_borderColorViewGroup) {
+                } else if (index == R.styleable.XConstraintLayout_x_borderColorViewGroup) {
                     mBorderColor = ta.getColor(index, mBorderColor);
-                } else if (index == R.styleable.XLayout_x_borderWidthViewGroup) {
+                } else if (index == R.styleable.XConstraintLayout_x_borderWidthViewGroup) {
                     mBorderWidth = ta.getDimensionPixelSize(index, mBorderWidth);
-                } else if (index == R.styleable.XLayout_x_radiusViewGroup) {
+                } else if (index == R.styleable.XConstraintLayout_x_radiusViewGroup) {
                     radius = ta.getDimensionPixelSize(index, 0);
-                } else if (index == R.styleable.XLayout_x_outerNormalColor) {
+                } else if (index == R.styleable.XConstraintLayout_x_outerNormalColor) {
                     mOuterNormalColor = ta.getColor(index, mOuterNormalColor);
-                } else if (index == R.styleable.XLayout_x_hideRadiusSide) {
+                } else if (index == R.styleable.XConstraintLayout_x_hideRadiusSide) {
                     mHideRadiusSide = ta.getInt(index, mHideRadiusSide);
-                } else if (index == R.styleable.XLayout_x_showBorderOnlyBeforeL) {
+                } else if (index == R.styleable.XConstraintLayout_x_showBorderOnlyBeforeL) {
                     mIsShowBorderOnlyBeforeL = ta.getBoolean(index, mIsShowBorderOnlyBeforeL);
-                } else if (index == R.styleable.XLayout_x_shadowElevation) {
+                } else if (index == R.styleable.XConstraintLayout_x_shadowElevation) {
                     shadow = ta.getDimensionPixelSize(index, shadow);
-                } else if (index == R.styleable.XLayout_x_shadowAlpha) {
+                } else if (index == R.styleable.XConstraintLayout_x_shadowAlpha) {
                     mShadowAlpha = ta.getFloat(index, mShadowAlpha);
-                } else if (index == R.styleable.XLayout_x_useThemeGeneralShadowElevation) {
+                } else if (index == R.styleable.XConstraintLayout_x_useThemeGeneralShadowElevation) {
                     useThemeGeneralShadowElevation = ta.getBoolean(index, false);
-                } else if (index == R.styleable.XLayout_x_outlineInsetLeft) {
+                } else if (index == R.styleable.XConstraintLayout_x_outlineInsetLeft) {
                     mOutlineInsetLeft = ta.getDimensionPixelSize(index, 0);
-                } else if (index == R.styleable.XLayout_x_outlineInsetRight) {
+                } else if (index == R.styleable.XConstraintLayout_x_outlineInsetRight) {
                     mOutlineInsetRight = ta.getDimensionPixelSize(index, mOutlineInsetRight);
-                } else if (index == R.styleable.XLayout_x_outlineInsetTop) {
+                } else if (index == R.styleable.XConstraintLayout_x_outlineInsetTop) {
                     mOutlineInsetTop = ta.getDimensionPixelSize(index, 0);
-                } else if (index == R.styleable.XLayout_x_outlineInsetBottom) {
+                } else if (index == R.styleable.XConstraintLayout_x_outlineInsetBottom) {
                     mOutlineInsetBottom = ta.getDimensionPixelSize(index, mOutlineInsetBottom);
-                } else if (index == R.styleable.XLayout_x_outlineExcludePadding) {
+                } else if (index == R.styleable.XConstraintLayout_x_outlineExcludePadding) {
                     mIsOutlineExcludePadding = ta.getBoolean(index, false);
                 }
             }

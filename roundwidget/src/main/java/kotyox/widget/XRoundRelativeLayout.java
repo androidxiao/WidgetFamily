@@ -6,7 +6,8 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
 import kotyox.alpha.XAlphaRelativeLayout;
-import kotyoxutils.XViewHelper;
+import kotyox.widget.roundrawable.XRoundLayoutDrawable;
+import kotyox.widget.state.XRoundRelativeLayoutState;
 
 
 /**
@@ -16,7 +17,7 @@ import kotyoxutils.XViewHelper;
  */
 public class XRoundRelativeLayout extends XAlphaRelativeLayout {
 
-    private XRoundLayoutDrawable mBg;
+    private XRoundRelativeLayoutState mBg;
 
     public XRoundRelativeLayout(@NonNull Context context) {
         this(context, null);
@@ -32,17 +33,8 @@ public class XRoundRelativeLayout extends XAlphaRelativeLayout {
     }
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
-        mBg = new XRoundLayoutDrawable(this);
+        mBg = new XRoundRelativeLayoutState(this);
         mBg.fromAttributeSet(context, attrs, defStyleAttr);
-        XViewHelper.setBackgroundKeepingPadding(this, mBg);
-        mBg.setTouchListener();
-    }
-
-    //处理按钮点击事件无效
-    @Override
-    public void setOnClickListener(OnClickListener l) {
-        super.setOnClickListener(l);
-        mBg.setIsTouchPass(false);
     }
 
     @Override

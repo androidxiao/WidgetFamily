@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import com.widget.family.R;
 
 import kotyox.widget.XRoundButton;
-import kotyox.widget.XRoundButtonDrawable;
 
 
 /**
@@ -29,17 +28,17 @@ public class UIActivity extends AppCompatActivity {
     }
 
     private void setBtnStyle() {
-        XRoundButtonDrawable drawable = (XRoundButtonDrawable) mBtn2.getBackground();
-        mBtn2.setPadding(40, 40, 40, 40);
-        drawable.setEnableColor(R.color.design_default_color_primary)
-//        .setPressedColor(R.color.colorAccent)
-                .setDisableColor(R.color.c_disable)
-                .setFontEnableColor(R.color.colorAccent)
-                .setFontDisableColor(R.color.c_ffffff)
-                .setFontPressColor(R.color.colorPrimaryDark)
-                .setEnable(true)
-                .build();
-        drawable.setCornerRadius(20);
-        drawable.setStroke(3, ContextCompat.getColor(this, R.color.colorPrimary));
+//        XRoundButtonDrawable drawable = (XRoundButtonDrawable) mBtn2.getBackground();
+//        mBtn2.setPadding(40, 40, 40, 40);
+//        drawable.setEnableColor(R.color.design_default_color_primary)
+////        .setPressedColor(R.color.colorAccent)
+//                .setDisableColor(R.color.c_disable)
+//                .setFontEnableColor(R.color.colorAccent)
+//                .setFontDisableColor(R.color.c_ffffff)
+//                .setFontPressColor(R.color.colorPrimaryDark)
+//                .setEnable(true)
+//                .build();
+//        drawable.setCornerRadius(20);
+//        drawable.setStroke(3, ContextCompat.getColor(this, R.color.colorPrimary));
     }
 }

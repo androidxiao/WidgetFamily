@@ -16,7 +16,7 @@ import kotyox.alpha.XAlphaRelativeLayout;
  */
 public class XRelativeLayout extends XAlphaRelativeLayout implements XLayout {
 
-    private XLayoutHelper mLayoutHelper;
+    private XRelativeLayoutHelper mLayoutHelper;
 
     public XRelativeLayout(@NonNull Context context) {
         this(context, null);
@@ -32,7 +32,7 @@ public class XRelativeLayout extends XAlphaRelativeLayout implements XLayout {
     }
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
-        mLayoutHelper = new XLayoutHelper(context, attrs, 0, this);
+        mLayoutHelper = new XRelativeLayoutHelper(context, attrs, 0, this);
         setChangeAlphaWhenDisable(false);
         setChangeAlphaWhenPress(false);
     }

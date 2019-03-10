@@ -17,7 +17,7 @@ import kotyox.alpha.XAlphaFrameLayout;
  */
 public class XFrameLayout extends XAlphaFrameLayout implements XLayout {
 
-    private XLayoutHelper mLayoutHelper;
+    private XFrameLayoutHelper mLayoutHelper;
 
     public XFrameLayout(@NonNull Context context) {
         this(context, null);
@@ -33,7 +33,7 @@ public class XFrameLayout extends XAlphaFrameLayout implements XLayout {
     }
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
-        mLayoutHelper = new XLayoutHelper(context, attrs, 0, this);
+        mLayoutHelper = new XFrameLayoutHelper(context, attrs, 0, this);
         setChangeAlphaWhenDisable(false);
         setChangeAlphaWhenPress(false);
     }

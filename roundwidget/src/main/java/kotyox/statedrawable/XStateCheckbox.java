@@ -4,6 +4,8 @@ import android.content.Context;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.util.AttributeSet;
 
+import kotyox.statedrawable.state.XStateCheckboxDrawable;
+
 /**
  * Created by wei.
  * Date: 2019/3/5 下午11:34
@@ -25,7 +27,7 @@ public class XStateCheckbox extends AppCompatCheckBox {
     }
 
     private void init(Context context,AttributeSet attrs,int defStyleAttr){
-        XStateDrawable stateDrawable = new XStateDrawable(this);
+        XStateCheckboxDrawable stateDrawable = new XStateCheckboxDrawable(this);
         stateDrawable.fromAttributeSet(context, attrs, defStyleAttr);
     }
 }

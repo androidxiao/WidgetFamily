@@ -5,7 +5,8 @@ import android.util.AttributeSet;
 
 import family.widget.com.roundwidget.R;
 import kotyox.alpha.XAlphaButton;
-import kotyoxutils.XViewHelper;
+import kotyox.widget.roundrawable.XRoundDrawable;
+import kotyox.widget.state.XRoundTextViewState;
 
 
 /**
@@ -22,19 +23,19 @@ import kotyoxutils.XViewHelper;
  * {@link R.styleable#XRoundButton}
  * </p>
  * <p>
- * 如需在 Java 中指定以上属性，需要通过 {@link #getBackground()} 获取 {@link XRoundButtonDrawable} 对象，
- * 然后使用 {@link XRoundButtonDrawable} 提供的方法进行设置。
+ * 如需在 Java 中指定以上属性，需要通过 {@link #getBackground()} 获取 {@link XRoundDrawable} 对象，
+ * 然后使用 {@link XRoundDrawable} 提供的方法进行设置。
  * </p>
  * <p>
  * 注意： Java 使用 <code>android:enabled</code> 为 false，请设置该类提供的 <code>setIsEnable</code> 方法；
  * 如果要设置按钮背景和字体按下效果，请使用该类提供的 <code>setPressedColor,set...</code> 方法；
  * 最后记得调用 <code>build()</code> 方法，否则设置的属性不起作用。
  *
- * @see XRoundButtonDrawable
+ * @see XRoundDrawable
  */
 public class XRoundTextView extends XAlphaButton {
 
-    private XRoundButtonDrawable mBg;
+    private XRoundTextViewState mBg;
 
 
     public XRoundTextView(Context context) {
@@ -54,19 +55,10 @@ public class XRoundTextView extends XAlphaButton {
 
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
-        mBg = new XRoundButtonDrawable(this);
+        mBg = new XRoundTextViewState(this);
         mBg.fromAttributeSet(context, attrs, defStyleAttr);
-        XViewHelper.setBackgroundKeepingPadding(this, mBg);
         setChangeAlphaWhenDisable(false);
         setChangeAlphaWhenPress(false);
-        mBg.setTouchListener();
-    }
-
-    //处理按钮点击事件无效
-    @Override
-    public void setOnClickListener(OnClickListener l) {
-        super.setOnClickListener(l);
-        mBg.setIsTouchPass(false);
     }
 
     @Override

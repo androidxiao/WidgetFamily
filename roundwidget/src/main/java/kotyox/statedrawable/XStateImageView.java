@@ -4,6 +4,8 @@ import android.content.Context;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 
+import kotyox.statedrawable.state.XStateImageViewDrawable;
+
 /**
  * Created by wei.
  * Date: 2019/3/5 下午11:34
@@ -25,7 +27,7 @@ public class XStateImageView extends AppCompatImageView {
     }
 
     private void init(Context context,AttributeSet attrs,int defStyleAttr){
-        XStateDrawable stateDrawable = new XStateDrawable(this);
+        XStateImageViewDrawable stateDrawable = new XStateImageViewDrawable(this);
         stateDrawable.fromAttributeSet(context, attrs, defStyleAttr);
     }
 }

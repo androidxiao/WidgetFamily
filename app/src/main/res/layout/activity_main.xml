@@ -2,7 +2,6 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:state="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,26 +12,61 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-         <kotyox.statedrawable.XStateImageView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:clickable="true"
-             state:x_statePressed="@mipmap/cb_sel"
-             state:x_stateEnabled="@mipmap/cb_unsel"/>
+        <kotyox.layout.XFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_margin="20dp"
+            app:x_borderColorViewGroup="@color/c_800736"
+            app:x_borderWidthViewGroup="2dp"
+            app:x_bottomDividerColor="@color/c_073680"
+            app:x_bottomDividerHeight="2dp"
+            app:x_outerNormalColor="@color/c_800736"
+            ></kotyox.layout.XFrameLayout>
+
+
+        <kotyox.widget.XRoundTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我问问"
+            app:x_backgroundColor="@color/c_073680"
+            />
+
+        <kotyox.statedrawable.XStateImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:x_stateEnabled="@mipmap/cb_unsel"
+            app:x_statePressed="@mipmap/cb_sel"/>
+
+        <kotyox.statedrawable.XStateButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="喔喔"
+            android:clickable="true"
+            android:textColor="@color/c_800736"
+            app:x_stateCheckC="@color/c_c1c1c1"
+            app:x_stateDirection="top"
+            app:x_stateCheck="@mipmap/cb_sel"
+            app:x_stateEnabledC="@color/c_1aad19"
+            app:x_statePressed="@mipmap/cb_sel"
+            app:x_statePressedC="@color/c_800736"
+            app:x_stateUnCheck="@mipmap/cb_unsel"
+            />
 
         <kotyox.statedrawable.XStateCheckbox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            app:x_statePressed="@mipmap/cb_sel"
-            app:x_stateCheck="@mipmap/cb_sel"
-            android:text="同意本协议"
             android:drawablePadding="10dp"
             android:gravity="center"
-            app:x_stateDirection="top"
-            app:x_statePressedC="@color/c_800736"
-            app:x_stateEnabledC="@color/c_1aad19"
+            android:text="同意本协议"
+            app:x_stateCheck="@mipmap/cb_sel"
             app:x_stateCheckC="@color/c_c1c1c1"
+            app:x_stateDirection="top"
+            app:x_stateEnabledC="@color/c_1aad19"
+            app:x_statePressed="@mipmap/cb_sel"
+            app:x_statePressedC="@color/c_800736"
             app:x_stateUnCheck="@mipmap/cb_unsel"/>
 
         <TextView
@@ -77,8 +111,8 @@
                 android:layout_weight="1"
                 android:background="@color/colorAccent"
                 android:button="@null"
-                android:gravity="center"
                 android:drawableRight="@android:drawable/ic_menu_add"
+                android:gravity="center"
                 android:paddingRight="20dp"
                 android:text="Delete"
                 android:visibility="gone"
@@ -106,10 +140,28 @@
             android:gravity="center"
             android:text="@string/s_sure"
             android:textSize="@dimen/s_18"
-            app:x_enableColor="@color/c_1aad19"
+            app:x_backgroundColor="@color/c_1aad19"
+            app:x_borderColor="@color/colorAccent"
+            app:x_borderWidth="1dp"
+            app:x_fontDisableColor="@color/c_800736"
             app:x_fontEnableColor="@color/c_ffffff"
-            app:x_pressColor="@color/c_179c16"
-            app:x_radius="@dimen/d_5"/>
+            app:x_fontPressColor="@color/c_1aad19"
+            app:x_gradientOrientation="BL_TR"
+            app:x_radius="4dp"/>
+
+        <kotyox.widget.XRoundTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <kotyox.widget.XRoundLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:x_endColor="@color/c_073680"
+            app:x_gradientOrientation="LEFT_RIGHT"
+            app:x_middleColor="@color/c_800736"
+            app:x_startColor="@color/c_1aad19"
+            ></kotyox.widget.XRoundLinearLayout>
 
         <kotyox.widget.XRoundEditText
             android:layout_width="200dp"
