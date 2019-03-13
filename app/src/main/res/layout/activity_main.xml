@@ -12,6 +12,20 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <kotyox.widget.XRoundButton
+            android:id="@+id/btn3"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:clickable="true"
+            android:gravity="center"
+            app:x_backgroundColor="@color/c_800736"
+            app:x_pressColor="@color/c_179c16"
+            app:x_borderColor="@color/c_073680"
+            app:x_borderWidth="1dp"
+            app:x_isRadiusAdjustBounds="true"
+            app:x_fontEnableColor="@color/c_c1c1c1"
+            android:text="按钮"/>
+
         <kotyox.layout.XFrameLayout
             android:layout_width="match_parent"
             android:layout_height="20dp"

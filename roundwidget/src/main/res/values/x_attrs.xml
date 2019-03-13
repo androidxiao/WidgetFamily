@@ -18,14 +18,10 @@
     <attr name="x_radiusBottomLeft" format="dimension"/>
     <!-- 指定右下方圆角的大小 -->
     <attr name="x_radiusBottomRight" format="dimension"/>
-    <!-- 正常背景色 -->
-    <attr name="x_enableColor" format="color"/>
     <!-- 不可用背景色 -->
     <attr name="x_disableColor" format="color"/>
     <!-- 按下背景色 -->
     <attr name="x_pressColor" format="color"/>
-    <!-- 控件是否可用 -->
-    <attr name="x_enable" format="boolean"/>
     <!-- 正常字体颜色 -->
     <attr name="x_fontEnableColor" format="color"/>
     <!-- 按下字体的颜色 -->
@@ -70,10 +66,8 @@
         <attr name="x_radiusTopRight"/>
         <attr name="x_radiusBottomLeft"/>
         <attr name="x_radiusBottomRight"/>
-        <attr name="x_enableColor"/>
         <attr name="x_disableColor"/>
         <attr name="x_pressColor"/>
-        <attr name="x_enable"/>
         <attr name="x_fontEnableColor"/>
         <attr name="x_fontPressColor"/>
         <attr name="x_fontDisableColor"/>
@@ -93,10 +87,8 @@
         <attr name="x_radiusTopRight"/>
         <attr name="x_radiusBottomLeft"/>
         <attr name="x_radiusBottomRight"/>
-        <attr name="x_enableColor"/>
         <attr name="x_disableColor"/>
         <attr name="x_pressColor"/>
-        <attr name="x_enable"/>
         <attr name="x_fontEnableColor"/>
         <attr name="x_fontPressColor"/>
         <attr name="x_fontDisableColor"/>
@@ -116,10 +108,8 @@
         <attr name="x_radiusTopRight"/>
         <attr name="x_radiusBottomLeft"/>
         <attr name="x_radiusBottomRight"/>
-        <attr name="x_enableColor"/>
         <attr name="x_disableColor"/>
         <attr name="x_pressColor"/>
-        <attr name="x_enable"/>
         <attr name="x_startColor"/>
         <attr name="x_middleColor"/>
         <attr name="x_endColor"/>
@@ -136,10 +126,8 @@
         <attr name="x_radiusTopRight"/>
         <attr name="x_radiusBottomLeft"/>
         <attr name="x_radiusBottomRight"/>
-        <attr name="x_enableColor"/>
         <attr name="x_disableColor"/>
         <attr name="x_pressColor"/>
-        <attr name="x_enable"/>
         <attr name="x_startColor"/>
         <attr name="x_middleColor"/>
         <attr name="x_endColor"/>
@@ -156,10 +144,8 @@
         <attr name="x_radiusTopRight"/>
         <attr name="x_radiusBottomLeft"/>
         <attr name="x_radiusBottomRight"/>
-        <attr name="x_enableColor"/>
         <attr name="x_disableColor"/>
         <attr name="x_pressColor"/>
-        <attr name="x_enable"/>
         <attr name="x_startColor"/>
         <attr name="x_middleColor"/>
         <attr name="x_endColor"/>
@@ -176,10 +162,8 @@
         <attr name="x_radiusTopRight"/>
         <attr name="x_radiusBottomLeft"/>
         <attr name="x_radiusBottomRight"/>
-        <attr name="x_enableColor"/>
         <attr name="x_disableColor"/>
         <attr name="x_pressColor"/>
-        <attr name="x_enable"/>
         <attr name="x_startColor"/>
         <attr name="x_middleColor"/>
         <attr name="x_endColor"/>
@@ -199,7 +183,6 @@
         <attr name="x_enableColor"/>
         <attr name="x_disableColor"/>
         <attr name="x_pressColor"/>
-        <attr name="x_enable"/>
         <attr name="x_fontEnableColor"/>
         <attr name="x_fontPressColor"/>
         <attr name="x_fontDisableColor"/>
@@ -215,10 +198,8 @@
         <attr name="x_radiusTopRight"/>
         <attr name="x_radiusBottomLeft"/>
         <attr name="x_radiusBottomRight"/>
-        <attr name="x_enableColor"/>
         <attr name="x_disableColor"/>
         <attr name="x_pressColor"/>
-        <attr name="x_enable"/>
     </declare-styleable>
 
     <!-- Layout 相关-->

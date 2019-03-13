@@ -13,10 +13,12 @@ import java.lang.ref.WeakReference;
 
 import family.widget.com.roundwidget.R;
 import kotyox.widget.roundrawable.XRoundDrawable;
-import kotyoxutils.XViewHelper;
 
+import static kotyoxutils.Px2DpUtil.dp2px;
+import static kotyoxutils.XDrawableHelper.colorStateList;
 import static kotyoxutils.XDrawableHelper.createColorStateList;
 import static kotyoxutils.XDrawableHelper.createStateListDrawable;
+import static kotyoxutils.XViewHelper.setBackgroundKeepingPadding;
 
 /**
  * Created by wei.
@@ -25,52 +27,180 @@ import static kotyoxutils.XDrawableHelper.createStateListDrawable;
  */
 public class XRoundTextViewState {
 
+    private Context mContext;
     private WeakReference<View> mReference;
+    private ColorStateList mColorBg;
+    private ColorStateList mColorBorder;
+    private int mBorderWidth;
+    private boolean mIsRadiusAdjustBounds;
+    private int mRadius;
+    private int mRadiusTopLeft;
+    private int mRadiusTopRight;
+    private int mRadiusBottomLeft;
+    private int mRadiusBottomRight;
+    private ColorStateList mDisableColor;
+    private ColorStateList mPressColor;
+    private int mFontEnableColor;
+    private int mFontPressColor;
+    private int mFontDisableColor;
+    private int mStartColor;
+    private int mMiddleColor;
+    private int mEndColor;
+    private XRoundDrawable mEnableDrawable;
+    private XRoundDrawable mPressDrawable;
+    private XRoundDrawable mDisableDrawable;
+    private View mView;
+    private StateListDrawable mStateListDrawable;
 
     public XRoundTextViewState(View view) {
         mReference = new WeakReference<>(view);
+        mEnableDrawable = new XRoundDrawable();
+        mPressDrawable = new XRoundDrawable();
+        mDisableDrawable = new XRoundDrawable();
+        mView = mReference.get();
+        mContext = mView.getContext();
     }
 
     public void fromAttributeSet(Context context , AttributeSet set, int defStyleAttr) {
         TypedArray ta = context.obtainStyledAttributes(set, R.styleable.XRoundTextView, defStyleAttr, 0);
 
-        ColorStateList colorBg = ta.getColorStateList(R.styleable.XRoundTextView_x_backgroundColor);
-        ColorStateList colorBorder = ta.getColorStateList(R.styleable.XRoundTextView_x_borderColor);
-        int borderWidth = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_borderWidth, 0);
-        boolean isRadiusAdjustBounds = ta.getBoolean(R.styleable.XRoundTextView_x_isRadiusAdjustBounds, false);
-        int mRadius = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radius, 0);
-        int mRadiusTopLeft = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radiusTopLeft, 0);
-        int mRadiusTopRight = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radiusTopRight, 0);
-        int mRadiusBottomLeft = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radiusBottomLeft, 0);
-        int mRadiusBottomRight = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radiusBottomRight, 0);
-        ColorStateList disableColor = ta.getColorStateList(R.styleable.XRoundTextView_x_disableColor);
-        ColorStateList pressColor = ta.getColorStateList(R.styleable.XRoundTextView_x_pressColor);
-        int fontEnableColor = ta.getColor(R.styleable.XRoundTextView_x_fontEnableColor, ContextCompat.getColor(context, android.R.color.black));
-        int fontPressColor = ta.getColor(R.styleable.XRoundTextView_x_fontPressColor, ContextCompat.getColor(context, android.R.color.black));
-        int fontDisableColor = ta.getColor(R.styleable.XRoundTextView_x_fontDisableColor, ContextCompat.getColor(context, android.R.color.black));
-        int startColor = ta.getColor(R.styleable.XRoundTextView_x_startColor, 0);
-        int middleColor = ta.getColor(R.styleable.XRoundTextView_x_middleColor, 0);
-        int endColor = ta.getColor(R.styleable.XRoundTextView_x_endColor, 0);
+        mColorBg = ta.getColorStateList(R.styleable.XRoundTextView_x_backgroundColor);
+        mColorBorder = ta.getColorStateList(R.styleable.XRoundTextView_x_borderColor);
+        mBorderWidth = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_borderWidth, 0);
+        mIsRadiusAdjustBounds = ta.getBoolean(R.styleable.XRoundTextView_x_isRadiusAdjustBounds, false);
+        mRadius = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radius, 0);
+        mRadiusTopLeft = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radiusTopLeft, 0);
+        mRadiusTopRight = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radiusTopRight, 0);
+        mRadiusBottomLeft = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radiusBottomLeft, 0);
+        mRadiusBottomRight = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radiusBottomRight, 0);
+        mDisableColor = ta.getColorStateList(R.styleable.XRoundTextView_x_disableColor);
+        mPressColor = ta.getColorStateList(R.styleable.XRoundTextView_x_pressColor);
+        mFontEnableColor = ta.getColor(R.styleable.XRoundTextView_x_fontEnableColor, 0);
+        mFontPressColor = ta.getColor(R.styleable.XRoundTextView_x_fontPressColor, 0);
+        mFontDisableColor = ta.getColor(R.styleable.XRoundTextView_x_fontDisableColor, 0);
+        mStartColor = ta.getColor(R.styleable.XRoundTextView_x_startColor, 0);
+        mMiddleColor = ta.getColor(R.styleable.XRoundTextView_x_middleColor, 0);
+        mEndColor = ta.getColor(R.styleable.XRoundTextView_x_endColor, 0);
+        setDefaultColor();
+        build();
+    }
 
-        XRoundDrawable enableDrawable = new XRoundDrawable();
-        enableDrawable.fromAttributeSet(colorBg,colorBorder,borderWidth,mRadiusTopLeft,mRadiusTopRight,mRadiusBottomLeft,mRadiusBottomRight,isRadiusAdjustBounds,mRadius);
-        if(startColor!=0) {
-            int colors[] = {startColor, middleColor, endColor};
-            enableDrawable.setColors(colors);
+    private void setDefaultColor() {
+        if (mStartColor != 0) {
+            int colors[] = {mStartColor, mMiddleColor, mEndColor};
+            mEnableDrawable.setColors(colors);
         }
 
-        XRoundDrawable pressDrawable = new XRoundDrawable();
-        pressDrawable.fromAttributeSet(pressColor,colorBorder,borderWidth,mRadiusTopLeft,mRadiusTopRight,mRadiusBottomLeft,mRadiusBottomRight,isRadiusAdjustBounds,mRadius);
-
-        XRoundDrawable disableDrawable = new XRoundDrawable();
-        disableDrawable.fromAttributeSet(disableColor,colorBorder,borderWidth,mRadiusTopLeft,mRadiusTopRight,mRadiusBottomLeft,mRadiusBottomRight,isRadiusAdjustBounds,mRadius);
-
-        StateListDrawable stateListDrawable = createStateListDrawable(enableDrawable, pressDrawable,disableDrawable);
-        View view = mReference.get();
-        XViewHelper.setBackgroundKeepingPadding(view, stateListDrawable);
-        if (view instanceof TextView) {
-            ((TextView) view).setTextColor(createColorStateList(fontEnableColor,fontPressColor,fontEnableColor,fontDisableColor));
+        if (mPressColor == null) {
+            mPressColor = mColorBg;
         }
+
+        if (mFontPressColor == 0) {
+            mFontPressColor = mFontEnableColor;
+        }
+    }
+
+    public XRoundTextViewState setBg(int colorBg) {
+        mColorBg = colorStateList(ContextCompat.getColor(mContext, colorBg));
+        return this;
+    }
+
+    public XRoundTextViewState setColorBorder(int colorBorder) {
+        mColorBorder = colorStateList(ContextCompat.getColor(mContext, colorBorder));
+        return this;
+    }
+
+    public XRoundTextViewState setBorderWidth(int borderWidth) {
+        mBorderWidth = dp2px(mContext, borderWidth);
+        return this;
+    }
+
+    public XRoundTextViewState setIsRadiusAdjustBounds(boolean isRadiusAdjustBounds) {
+        mIsRadiusAdjustBounds = isRadiusAdjustBounds;
+        return this;
+    }
+
+    public XRoundTextViewState setRadius(int radius) {
+        mRadius = dp2px(mContext, radius);
+        return this;
+    }
+
+    public XRoundTextViewState setTopLeft(int topLeft) {
+        mRadiusTopLeft = dp2px(mContext, topLeft);
+        return this;
+    }
+
+    public XRoundTextViewState setTopRight(int topRight) {
+        mRadiusTopRight = dp2px(mContext, topRight);
+        return this;
+    }
+
+    public XRoundTextViewState setBottomLeft(int bottomLeft) {
+        mRadiusBottomLeft = dp2px(mContext, bottomLeft);
+        return this;
+    }
+
+    public XRoundTextViewState setBottomRight(int bottomRight) {
+        mRadiusBottomRight = dp2px(mContext, bottomRight);
+        return this;
+    }
+
+    public XRoundTextViewState setPressColor(int pressColor) {
+        mPressColor = colorStateList(ContextCompat.getColor(mContext, pressColor));
+        return this;
+    }
+
+    public XRoundTextViewState setDisableColor(int disableColor) {
+        mDisableColor = colorStateList(ContextCompat.getColor(mContext, disableColor));
+        return this;
+    }
+
+    public XRoundTextViewState setFontEnableColor(int fontEnableColor) {
+        mFontEnableColor = ContextCompat.getColor(mContext, fontEnableColor);
+        return this;
+    }
+
+    public XRoundTextViewState setFontPressColor(int fontPressColor) {
+        mFontPressColor = ContextCompat.getColor(mContext, fontPressColor);
+        return this;
+    }
+
+    public XRoundTextViewState setFontDisableColor(int fontDisableColor) {
+        mFontDisableColor = ContextCompat.getColor(mContext, fontDisableColor);
+        return this;
+    }
+
+    public XRoundTextViewState setStartColor(int startColor) {
+        mStartColor = ContextCompat.getColor(mContext, startColor);
+        return this;
+    }
+
+    public XRoundTextViewState setMiddleColor(int middleColor) {
+        mMiddleColor = ContextCompat.getColor(mContext, middleColor);
+        return this;
+    }
+
+    public XRoundTextViewState setEndColor(int endColor) {
+        mEndColor = ContextCompat.getColor(mContext, endColor);
+        return this;
+    }
+
+    public XRoundTextViewState build() {
+        setDefaultColor();
+        mEnableDrawable.fromAttributeSet(mColorBg, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+
+        mPressDrawable.fromAttributeSet(mPressColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+
+        mDisableDrawable.fromAttributeSet(mDisableColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+
+        mStateListDrawable = createStateListDrawable(mEnableDrawable, mPressDrawable, mDisableDrawable);
+
+        setBackgroundKeepingPadding(mView, mStateListDrawable);
+
+        if (mView instanceof TextView) {
+            ((TextView) mView).setTextColor(createColorStateList(mFontEnableColor, mFontPressColor, mFontEnableColor, mFontDisableColor));
+        }
+        return this;
     }
 
 

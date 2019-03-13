@@ -1,7 +1,6 @@
 package kotyox.statedrawable.state;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
@@ -78,19 +77,4 @@ public class XStateImageViewDrawable extends StateListDrawable {
 
     }
 
-    /**
-     * 对 TextView 设置不同状态时文字的颜色。
-     */
-    private ColorStateList createColorStateList(int normal, int pressed, int unable, int check) {
-        int[] colors = new int[]{check, check, pressed, unable, normal, normal};
-        int[][] states = new int[colors.length][];
-        states[0] = new int[]{android.R.attr.state_checked};
-        states[1] = new int[]{android.R.attr.state_selected};
-        states[2] = new int[]{android.R.attr.state_pressed};
-        states[3] = new int[]{-android.R.attr.state_enabled};
-        states[4] = new int[]{android.R.attr.state_enabled};
-        states[5] = new int[]{};
-        ColorStateList colorList = new ColorStateList(states, colors);
-        return colorList;
-    }
 }

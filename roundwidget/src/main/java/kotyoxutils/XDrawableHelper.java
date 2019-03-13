@@ -62,6 +62,11 @@ public class XDrawableHelper {
         return new ColorStateList(states, colors);
     }
 
+    /**
+     * 渐变的方向
+     * @param orientation
+     * @return
+     */
     public static GradientDrawable.Orientation getOrientation(int orientation){
         switch (orientation) {
             case 0:
@@ -82,5 +87,17 @@ public class XDrawableHelper {
                 return GradientDrawable.Orientation.TL_BR;
         }
         return GradientDrawable.Orientation.LEFT_RIGHT;
+    }
+
+    /**
+     * 构造 ColorStateList
+     * @param color
+     * @return
+     */
+    public static ColorStateList colorStateList(int color) {
+        int[] colors = new int[]{color};
+        int[][] states = new int[colors.length][];
+        states[0] = new int[]{};
+        return new ColorStateList(states, colors);
     }
 }
