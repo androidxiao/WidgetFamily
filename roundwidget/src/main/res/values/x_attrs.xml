@@ -35,6 +35,8 @@
     <!-- 结束颜色 -->
     <attr name="x_endColor" format="color"/>
 
+    <attr name="x_enableColor" format="color"/>
+
     <attr name="x_gradientOrientation" format="enum">
         <!-- 从顶部到底部绘制渐变 -->
         <enum name="TOP_BOTTOM" value="0"/>
