@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
-import kotyox.alpha.XAlphaRelativeLayout;
+import kotyox.layout.XRelativeLayout;
 import kotyox.widget.roundrawable.XRoundLayoutDrawable;
 import kotyox.widget.state.XRoundRelativeLayoutState;
 
@@ -15,7 +15,7 @@ import kotyox.widget.state.XRoundRelativeLayoutState;
  * Date: 2019/1/3 下午11:52
  * Description: see {@link XRoundRelativeLayout} 与 {@link XRoundLayoutDrawable}
  */
-public class XRoundRelativeLayout extends XAlphaRelativeLayout {
+public class XRoundRelativeLayout extends XRelativeLayout {
 
     private XRoundRelativeLayoutState mBg;
 

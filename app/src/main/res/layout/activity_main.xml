@@ -12,19 +12,73 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.widget.family.widget.TrapezoniadaImageViewJ
+                android:id="@+id/trIv3"
+                android:layout_width="168dp"
+                android:layout_height="100dp"
+                app:borderColor="@color/c_800736"
+                app:borderSize="5dp"
+                app:distance="20dp"
+                app:start="right"/>
+
+            <com.widget.family.widget.TrapezoniadaImageViewJ
+                android:id="@+id/trIv4"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="148dp"
+                android:src="@drawable/ic_launcher_background"
+                app:borderColor="@color/c_font_press"
+                app:borderSize="10dp"
+                android:visibility="visible"
+                app:di_borderColor="@color/c_800736"
+                app:distance="20dp"
+                app:start="left"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+
+            <com.widget.family.widget.TrapezoniadaImageView
+                android:id="@+id/trIv"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:di_distance="20dp"
+                app:di_start="right"/>
+            <!--app:di_end="bottom"-->
+
+            <com.widget.family.widget.TrapezoniadaImageView2
+                android:id="@+id/trIv2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="80dp"
+                android:src="@drawable/ic_launcher_background"
+                app:di_borderColor="@color/c_800736"
+                app:di_borderEnabled="true"
+                app:di_borderSize="10dp"
+                app:di_distance="20dp"
+                app:di_start="left"/>
+
+        </FrameLayout>
+
         <kotyox.widget.XRoundButton
             android:id="@+id/btn3"
-            android:layout_width="100dp"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
             android:clickable="true"
             android:gravity="center"
+            android:text="按钮"
             app:x_backgroundColor="@color/c_800736"
-            app:x_pressColor="@color/c_179c16"
             app:x_borderColor="@color/c_073680"
             app:x_borderWidth="1dp"
-            app:x_isRadiusAdjustBounds="true"
             app:x_fontEnableColor="@color/c_c1c1c1"
-            android:text="按钮"/>
+            app:x_isRadiusAdjustBounds="true"
+            app:x_pressColor="@color/c_179c16"/>
 
         <kotyox.layout.XFrameLayout
             android:layout_width="match_parent"
@@ -55,13 +109,13 @@
         <kotyox.statedrawable.XStateButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="true"
             android:gravity="center"
             android:text="喔喔"
-            android:clickable="true"
             android:textColor="@color/c_800736"
+            app:x_stateCheck="@mipmap/cb_sel"
             app:x_stateCheckC="@color/c_c1c1c1"
             app:x_stateDirection="top"
-            app:x_stateCheck="@mipmap/cb_sel"
             app:x_stateEnabledC="@color/c_1aad19"
             app:x_statePressed="@mipmap/cb_sel"
             app:x_statePressedC="@color/c_800736"

@@ -5,9 +5,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
-import kotyox.alpha.XAlphaConstraintLayout;
-import kotyox.widget.state.XRoundConstraintLayoutState;
+import kotyox.layout.XConstraintLayout;
 import kotyox.widget.roundrawable.XRoundLayoutDrawable;
+import kotyox.widget.state.XRoundConstraintLayoutState;
 
 
 /**
@@ -15,7 +15,7 @@ import kotyox.widget.roundrawable.XRoundLayoutDrawable;
  * Date: 2019/1/4 下午12:02
  * Description: see {@link XRoundConstraintLayout} 与 {@link XRoundLayoutDrawable}
  */
-public class XRoundConstraintLayout extends XAlphaConstraintLayout {
+public class XRoundConstraintLayout extends XConstraintLayout {
 
     private XRoundConstraintLayoutState mBg;
 

@@ -1,26 +1,56 @@
-ext{
+ext {
     android = [
-            compileSdkVersion:28,
-            minSdkVersion:16,
-            targetSdkVersion:28,
-            supportLibVersion:"28.0.0",
-            constraintLayout:"1.1.3",
-            versionCode:1,
-            versionName:"1.0.0",
-            applicationId:"com.widget.family"
+            compileSdkVersion: 28,
+            minSdkVersion    : 14,
+            targetSdkVersion : 28,
+            supportLibVersion: "28.0.0",
+            constraintLayout : "1.1.3",
+            versionCode      : 1,
+            versionName      : "1.0.0",
+            applicationId    : "com.widget.family"
     ]
 
 
-    customWidget=[
-            roundWidgetVersionCode:1,
-            roundWidgetVersionName:"1.0.2",
+    customWidget = [
+            roundWidgetVersionCode: 1,
+            roundWidgetVersionName: "1.0.2",
     ]
+
+    libs = [
+            commonUtilsVersionCode: 1,
+            commonUtilsVersionName: "1.0.0",
+            utilcode              : "1.23.4",
+            basePop               : "2.1.8",
+            lifeCycle             : "1.1.1",
+            rxAndroid             : "2.1.1",
+            rxJava2               : "2.2.8",
+            retrofit2             : "2.5.0",
+            okhttp3               : "3.12.0",
+            gson                  : "2.8.5",
+            logger                : "2.2.0",
+    ]
+
     dependencies = [
-            design             : "com.android.support:design:${android.supportLibVersion}",
-            supportV4          : "com.android.support:support-v4:${android.supportLibVersion}",
-            supportV7          : "com.android.support:appcompat-v7:${android.supportLibVersion}",
-            cardview           : "com.android.support:cardview-v7:${android.supportLibVersion}",
-            recyclerview       : "com.android.support:recyclerview-v7:${android.supportLibVersion}",
-            constraintlayout   : "com.android.support.constraint:constraint-layout:${android.constraintLayout}",
+            design          : "com.android.support:design:${android.supportLibVersion}",
+            supportV4       : "com.android.support:support-v4:${android.supportLibVersion}",
+            supportV7       : "com.android.support:appcompat-v7:${android.supportLibVersion}",
+            cardview        : "com.android.support:cardview-v7:${android.supportLibVersion}",
+            recyclerview    : "com.android.support:recyclerview-v7:${android.supportLibVersion}",
+            constraintlayout: "com.android.support.constraint:constraint-layout:${android.constraintLayout}",
+            utilcode        : "com.blankj:utilcode:${libs.utilcode}",
+            basePop         : "com.github.razerdp:BasePopup:${libs.basePop}",
+            rxAndroid       : "io.reactivex.rxjava2:rxandroid:${libs.rxAndroid}",
+            rxJava2         : "io.reactivex.rxjava2:rxjava:${libs.rxJava2}",
+            lifeCycle       : "android.arch.lifecycle:extensions:${libs.lifeCycle}",
+            lifeProcessor   : "android.arch.lifecycle:compiler:${libs.lifeCycle}",
+            retrofit2       : "com.squareup.retrofit2:retrofit:${libs.retrofit2}",
+            okhttp3Log      : "com.squareup.okhttp3:logging-interceptor:${libs.okhttp3}",
+            converterGson   : "com.squareup.retrofit2:converter-gson:${libs.retrofit2}",
+            adapterRxjava2  : "com.squareup.retrofit2:adapter-rxjava2:${libs.retrofit2}",
+            gson            : "com.google.code.gson:gson:${libs.gson}",
+            logger          : "com.orhanobut:logger:${libs.logger}",
+
     ]
+
+
 }

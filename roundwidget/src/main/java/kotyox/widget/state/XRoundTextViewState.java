@@ -81,7 +81,6 @@ public class XRoundTextViewState {
         mStartColor = ta.getColor(R.styleable.XRoundTextView_x_startColor, 0);
         mMiddleColor = ta.getColor(R.styleable.XRoundTextView_x_middleColor, 0);
         mEndColor = ta.getColor(R.styleable.XRoundTextView_x_endColor, 0);
-        setDefaultColor();
         build();
     }
 

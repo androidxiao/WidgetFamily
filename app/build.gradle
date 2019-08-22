@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 def config=rootProject.ext.android
 def libs=rootProject.ext.dependencies
@@ -37,4 +39,21 @@ dependencies {
 //    implementation (name:'roundWidget-release-V1.0.0.20190214',ext:'aar')
     implementation project(':roundwidget')
     implementation project(':commonutils')
+    implementation libs.rxAndroid
+    implementation libs.rxJava2
+    implementation libs.lifeCycle
+    implementation libs.retrofit2
+    implementation libs.converterGson
+    implementation libs.adapterRxjava2
+    implementation libs.gson
+    implementation libs.okhttp3Log
+    implementation libs.logger
+    annotationProcessor libs.lifeProcessor
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+}
+repositories {
+    mavenCentral()
 }

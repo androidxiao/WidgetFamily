@@ -1,0 +1,40 @@
+apply plugin: 'com.android.library'
+def config=rootProject.ext.android
+def libs=rootProject.ext.dependencies
+def commonUtils=rootProject.ext.libs
+android {
+
+    compileSdkVersion config.compileSdkVersion
+    defaultConfig {
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode commonUtils.commonUtilsVersionCode
+        versionName commonUtils.commonUtilsVersionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation libs.design
+    implementation libs.supportV7
+    implementation libs.supportV4
+    implementation libs.recyclerview
+    implementation libs.rxAndroid
+    implementation libs.rxJava2
+    implementation libs.lifeCycle
+    implementation libs.retrofit2
+    implementation libs.converterGson
+    implementation libs.adapterRxjava2
+    implementation libs.gson
+    implementation libs.utilcode
+    implementation libs.okhttp3Log
+    implementation libs.logger
+    annotationProcessor libs.lifeProcessor
+}

@@ -4,8 +4,8 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
 
+import kotyox.layout.XLinearLayout;
 import kotyox.widget.roundrawable.XRoundLayoutDrawable;
 import kotyox.widget.state.XRoundLinearLayoutState;
 
@@ -15,7 +15,7 @@ import kotyox.widget.state.XRoundLinearLayoutState;
  * Date: 2019/1/3 下午11:52
  * Description: see {@link XRoundLinearLayout} 与 {@link XRoundLayoutDrawable}
  */
-public class XRoundLinearLayout extends LinearLayout {
+public class XRoundLinearLayout extends XLinearLayout {
 
     private XRoundLinearLayoutState mBg;
 

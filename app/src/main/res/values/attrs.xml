@@ -4,4 +4,39 @@
         <attr name="android:drawablePadding"/>
         <attr name="android:drawableLeft"/>
     </declare-styleable>
+
+
+    <declare-styleable name="TrapezoniadaImageViewJ">
+        <attr format="enum" name="di_start">
+            <enum name="left" value="1"/>
+            <enum name="top" value="2"/>
+            <enum name="right" value="3"/>
+            <enum name="bottom" value="4"/>
+        </attr>
+        <attr format="enum" name="di_end">
+            <enum name="left" value="1"/>
+            <enum name="top" value="2"/>
+            <enum name="right" value="3"/>
+            <enum name="bottom" value="4"/>
+        </attr>
+        <attr format="dimension" name="di_distance"/>
+        <attr format="dimension" name="di_borderSize"/>
+        <attr format="color" name="di_borderColor"/>
+        <attr format="boolean" name="di_borderEnabled"/>
+    </declare-styleable>
+
+    <declare-styleable name="TrapezoniadaImageView">
+        <attr format="enum" name="start">
+            <!-- 左边切 -->
+            <enum name="left" value="1"/>
+            <!-- 右边切 -->
+            <enum name="right" value="2"/>
+        </attr>
+        <!-- 什么位置开始切 -->
+        <attr format="dimension" name="distance"/>
+        <!-- 切边的描边宽度 -->
+        <attr format="dimension" name="borderSize"/>
+        <!-- 切边描边的颜色 -->
+        <attr format="color" name="borderColor"/>
+    </declare-styleable>
 </resources>

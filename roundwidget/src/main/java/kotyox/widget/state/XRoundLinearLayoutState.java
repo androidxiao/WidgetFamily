@@ -76,7 +76,6 @@ public class XRoundLinearLayoutState {
         mMiddleColor = ta.getColor(R.styleable.XRoundLinearLayout_x_middleColor, 0);
         mEndColor = ta.getColor(R.styleable.XRoundLinearLayout_x_endColor, 0);
         mGradientOrientation = ta.getInt(R.styleable.XRoundLinearLayout_x_gradientOrientation, -1);
-        setDefaultColor();
         build();
     }
 
@@ -89,6 +88,10 @@ public class XRoundLinearLayoutState {
 
         if (mPressColor == null) {
             mPressColor = mColorBg;
+        }
+
+        if (mDisableColor == null) {
+            mDisableColor = mColorBg;
         }
     }
 

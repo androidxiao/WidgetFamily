@@ -19,7 +19,7 @@ import kotyox.widget.state.XRoundButtonState;
  * </ul>
  * </p>
  * <p>
- * 如果在 xml 中指定圆角、边框颜色、边框粗细、背景色等值，采用 xml 属性
+ * 可以在 xml 中指定圆角、边框颜色、边框粗细、背景色等值，采用 xml 属性
  * </p>
  * <p>
  * 如需在 Java 中指定以上属性，需要通过 {@link #getBackground()} 获取 {@link XRoundDrawable} 对象，
@@ -28,7 +28,7 @@ import kotyox.widget.state.XRoundButtonState;
  * <p>
  * 注意： Java 使用 <code>android:enabled</code> 为 false，请设置该类提供的 <code>setIsEnable</code> 方法；
  * 如果要设置按钮背景和字体按下效果，请使用该类提供的 <code>setPressedColor,set...</code> 方法；
- * 最后记得调用 {@link XRoundDrawable#build()} 方法，否则设置的属性不起作用。
+ * 最后记得调用 {@link XRoundButtonState#build()} 方法，否则设置的属性不起作用。
  *
  * @see XRoundDrawable
  */
