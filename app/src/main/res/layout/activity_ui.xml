@@ -12,17 +12,29 @@
         >
         <!--android:layout_margin="20dp"-->
 
+        <kotyox.widget.XRoundRelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:x_startColor="#75CEEA"
+            app:x_middleColor="#75CEEA"
+            app:x_endColor="#5EA2FE"
+            app:x_borderColorViewGroup="@color/bg_gradient"
+            app:x_borderWidth="1dp"
+            app:x_gradientOrientation="LEFT_RIGHT"/>
+
 
         <kotyox.widget.XRoundButton
             style="@style/CommonStyleView"
             android:gravity="center"
             android:text="按钮"
             android:textSize="18sp"
-            app:x_backgroundColor="@color/c_disable"
+            app:x_startColor="@color/colorAccent"
+            app:x_middleColor="@color/colorAccent"
+            app:x_endColor="@color/c_press"
+            app:x_gradientOrientation="BR_TL"
             app:x_borderColor="@color/colorAccent"
             app:x_borderWidth="2dp"
-            app:x_disableColor="@color/c_disable"
-            app:x_fontEnableColor="@color/c_font_normal"
+            app:x_fontEnableColor="@color/c_font_press"
             app:x_fontPressColor="@color/c_font_press"
             app:x_fontDisableColor="@color/c_font_disable"
             app:x_pressColor="@color/c_press"
@@ -161,7 +173,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Java Code Set"
-                android:textColor="@color/c_ffffff"
+                android:textColor="@color/colorAccent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"

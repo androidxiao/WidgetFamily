@@ -18,6 +18,7 @@ import static kotyoxutils.Px2DpUtil.dp2px;
 import static kotyoxutils.XDrawableHelper.colorStateList;
 import static kotyoxutils.XDrawableHelper.createColorStateList;
 import static kotyoxutils.XDrawableHelper.createStateListDrawable;
+import static kotyoxutils.XDrawableHelper.getOrientation;
 import static kotyoxutils.XViewHelper.setBackgroundKeepingPadding;
 
 /**
@@ -51,6 +52,7 @@ public class XRoundTextViewState {
     private XRoundDrawable mDisableDrawable;
     private View mView;
     private StateListDrawable mStateListDrawable;
+    private int mGradientOrientation;
 
     public XRoundTextViewState(View view) {
         mReference = new WeakReference<>(view);
@@ -81,6 +83,7 @@ public class XRoundTextViewState {
         mStartColor = ta.getColor(R.styleable.XRoundTextView_x_startColor, 0);
         mMiddleColor = ta.getColor(R.styleable.XRoundTextView_x_middleColor, 0);
         mEndColor = ta.getColor(R.styleable.XRoundTextView_x_endColor, 0);
+        mGradientOrientation = ta.getInt(R.styleable.XRoundRelativeLayout_x_gradientOrientation, -1);
         build();
     }
 
@@ -88,6 +91,7 @@ public class XRoundTextViewState {
         if (mStartColor != 0) {
             int colors[] = {mStartColor, mMiddleColor, mEndColor};
             mEnableDrawable.setColors(colors);
+            mEnableDrawable.setOrientation(getOrientation(mGradientOrientation));
         }
 
         if (mPressColor == null) {
@@ -186,7 +190,9 @@ public class XRoundTextViewState {
 
     public XRoundTextViewState build() {
         setDefaultColor();
-        mEnableDrawable.fromAttributeSet(mColorBg, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+        if(mStartColor == 0) {
+            mEnableDrawable.fromAttributeSet(mColorBg, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+        }
 
         mPressDrawable.fromAttributeSet(mPressColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
 

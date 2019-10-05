@@ -3,6 +3,7 @@ package kotyox.widget.state;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
+import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -84,6 +85,7 @@ public class XRoundLinearLayoutState {
             int colors[] = {mStartColor, mMiddleColor, mEndColor};
             mEnableDrawable.setColors(colors);
             mEnableDrawable.setOrientation(getOrientation(mGradientOrientation));
+            mEnableDrawable.setGradientType(GradientDrawable.LINEAR_GRADIENT);
         }
 
         if (mPressColor == null) {
@@ -172,7 +174,9 @@ public class XRoundLinearLayoutState {
 
     public XRoundLinearLayoutState build() {
         setDefaultColor();
-        mEnableDrawable.fromAttributeSet(mColorBg, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+        if(mStartColor == 0) {
+            mEnableDrawable.fromAttributeSet(mColorBg, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+        }
 
         mPressDrawable.fromAttributeSet(mPressColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
 
