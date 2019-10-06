@@ -39,7 +39,7 @@
             app:x_fontDisableColor="@color/c_font_disable"
             app:x_pressColor="@color/c_press"
             app:x_isRadiusAdjustBounds="false"
-            app:x_radius="10dp"/>
+            app:x_radiusTopLeft="5dp"/>
 
         <kotyox.widget.XRoundButton
             style="@style/CommonStyleView"

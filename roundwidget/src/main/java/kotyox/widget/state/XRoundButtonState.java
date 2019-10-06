@@ -88,7 +88,7 @@ public class XRoundButtonState {
             int colors[] = {mStartColor, mMiddleColor, mEndColor};
             mEnableDrawable.setColors(colors);
             if(mRadius == 0) {
-                float[] radii = new float[]{mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight};
+                float[] radii = new float[]{mRadiusTopLeft, mRadiusTopLeft,mRadiusTopRight,mRadiusTopRight, mRadiusBottomLeft,mRadiusBottomLeft, mRadiusBottomRight,mRadiusBottomRight};
                 mEnableDrawable.setCornerRadii(radii);
             }else{
                 mEnableDrawable.setCornerRadius(mRadius);
