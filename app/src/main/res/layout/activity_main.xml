@@ -132,6 +132,7 @@
             app:x_stateCheck="@mipmap/cb_sel"
             app:x_stateCheckC="@color/c_c1c1c1"
             app:x_stateDirection="top"
+            android:checked="true"
             app:x_stateEnabledC="@color/c_1aad19"
             app:x_statePressed="@mipmap/cb_sel"
             app:x_statePressedC="@color/c_800736"

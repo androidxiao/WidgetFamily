@@ -1,7 +1,7 @@
 package kotyox.statedrawable;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatCheckBox;
+import android.support.v7.widget.AppCompatRadioButton;
 import android.util.AttributeSet;
 
 import kotyox.statedrawable.state.XStateRadioButtonDrawable;
@@ -11,7 +11,7 @@ import kotyox.statedrawable.state.XStateRadioButtonDrawable;
  * Date: 2019/3/5 下午11:34
  * Description:
  */
-public class XStateRadioButton extends AppCompatCheckBox {
+public class XStateRadioButton extends AppCompatRadioButton {
 
     public XStateRadioButton(Context context) {
         this(context,null);
