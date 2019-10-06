@@ -80,7 +80,6 @@ public class XRoundButtonState {
         mStartColor = ta.getColor(R.styleable.XRoundButton_x_startColor, 0);
         mMiddleColor = ta.getColor(R.styleable.XRoundButton_x_middleColor, 0);
         mEndColor = ta.getColor(R.styleable.XRoundButton_x_endColor, 0);
-        setDefaultColor();
         build();
     }
 
@@ -88,6 +87,12 @@ public class XRoundButtonState {
         if (mStartColor != 0) {
             int colors[] = {mStartColor, mMiddleColor, mEndColor};
             mEnableDrawable.setColors(colors);
+            if(mRadius == 0) {
+                float[] radii = new float[]{mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight};
+                mEnableDrawable.setCornerRadii(radii);
+            }else{
+                mEnableDrawable.setCornerRadius(mRadius);
+            }
         }
 
         if (mPressColor == null) {

@@ -24,7 +24,7 @@ public class XRoundDrawable extends GradientDrawable {
     /**
      * 圆角大小是否自适应为 View 高度的一半
      */
-    private boolean mRadiusAdjustBounds = true;
+    private boolean mRadiusAdjustBounds = false;
     private ColorStateList mFillColors;
     private int mStrokeWidth = 0;
     private ColorStateList mStrokeColors;

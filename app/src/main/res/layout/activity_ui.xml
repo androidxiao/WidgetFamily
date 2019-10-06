@@ -38,7 +38,22 @@
             app:x_fontPressColor="@color/c_font_press"
             app:x_fontDisableColor="@color/c_font_disable"
             app:x_pressColor="@color/c_press"
+            app:x_isRadiusAdjustBounds="false"
             app:x_radius="10dp"/>
+
+        <kotyox.widget.XRoundButton
+            style="@style/CommonStyleView"
+            android:gravity="center"
+            android:text="按钮"
+            android:textSize="18sp"
+            app:x_borderColor="@color/colorAccent"
+            app:x_borderWidth="2dp"
+            app:x_fontEnableColor="@color/c_font_press"
+            app:x_fontPressColor="@color/c_font_press"
+            app:x_fontDisableColor="@color/c_font_disable"
+            app:x_pressColor="@color/c_press"
+            app:x_isRadiusAdjustBounds="true"
+            app:x_radius="5dp"/>
 
         <kotyox.layout.XRelativeLayout
             style="@style/CommonStyleLayout"
