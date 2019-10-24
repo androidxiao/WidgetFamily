@@ -18,6 +18,7 @@ import static kotyoxutils.Px2DpUtil.dp2px;
 import static kotyoxutils.XDrawableHelper.colorStateList;
 import static kotyoxutils.XDrawableHelper.createColorStateList;
 import static kotyoxutils.XDrawableHelper.createStateListDrawable;
+import static kotyoxutils.XDrawableHelper.getOrientation;
 import static kotyoxutils.XViewHelper.setBackgroundKeepingPadding;
 
 /**
@@ -51,6 +52,7 @@ public class XRoundButtonState {
     private XRoundDrawable mDisableDrawable;
     private View mView;
     private StateListDrawable mStateListDrawable;
+    private int mGradientOrientation;
 
     public XRoundButtonState(View view) {
         mReference = new WeakReference<>(view);
@@ -80,6 +82,7 @@ public class XRoundButtonState {
         mStartColor = ta.getColor(R.styleable.XRoundButton_x_startColor, 0);
         mMiddleColor = ta.getColor(R.styleable.XRoundButton_x_middleColor, 0);
         mEndColor = ta.getColor(R.styleable.XRoundButton_x_endColor, 0);
+        mGradientOrientation = ta.getInt(R.styleable.XRoundButton_x_gradientOrientation, -1);
         build();
     }
 
@@ -93,6 +96,7 @@ public class XRoundButtonState {
             }else{
                 mEnableDrawable.setCornerRadius(mRadius);
             }
+            mEnableDrawable.setOrientation(getOrientation(mGradientOrientation));
         }
 
         if (mPressColor == null) {
@@ -186,6 +190,11 @@ public class XRoundButtonState {
 
     public XRoundButtonState setEndColor(int endColor) {
         mEndColor = ContextCompat.getColor(mContext, endColor);
+        return this;
+    }
+
+    public XRoundButtonState setGradientOrientation(int orientation) {
+        mGradientOrientation = orientation;
         return this;
     }
 

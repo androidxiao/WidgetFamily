@@ -10,6 +10,28 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
+
+        <kotyox.widget.XRoundButton
+            android:id="@+id/btn_start_calculate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="32dp"
+            android:gravity="center"
+            android:text="开始预测"
+            android:textSize="24sp"
+            app:x_gradientOrientation="LEFT_RIGHT"
+            app:x_middleColor="#75CEEA"
+            app:x_endColor="#5EA2FE"
+            app:x_fontEnableColor="#fff"
+            app:x_startColor="#75CEEA" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="登录"
+            android:gravity="center"
+            android:background="@drawable/shape_rect_blue"/>
+
         <!--android:layout_margin="20dp"-->
 
         <kotyox.widget.XRoundRelativeLayout

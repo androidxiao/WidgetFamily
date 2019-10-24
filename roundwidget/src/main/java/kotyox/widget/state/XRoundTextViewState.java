@@ -188,6 +188,11 @@ public class XRoundTextViewState {
         return this;
     }
 
+    public XRoundTextViewState setGradientOrientation(int orientation) {
+        mGradientOrientation = orientation;
+        return this;
+    }
+
     public XRoundTextViewState build() {
         setDefaultColor();
         if(mStartColor == 0) {
