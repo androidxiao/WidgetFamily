@@ -56,8 +56,8 @@ Customizable attributes
 | x_radiusViewGroup        |   0  | x_radiusViewGroup          | null       |同时指定四个方向的圆角|
 | x_borderColorViewGroup        |   0  | x_borderColorViewGroup          | null       |viewGroup 边框颜色|
 | x_outerNormalColor        |   0  | x_outerNormalColor          | null       |api 小于 21 时，外边框颜色|
-| x_hideRadiusSide        |   0  | x_hideRadiusSide          | null       ||有 radius，但是有一边不显示 radius(none、left、top、right、bottom)
-| x_showBorderOnlyBeforeL        |   true  | x_showBorderOnlyBeforeL          | null       ||是否在低于 android 5.0 版本上显示边框
+| x_hideRadiusSide        |   0  | x_hideRadiusSide          | null       |有 radius，但是有一边不显示 radius(none、left、top、right、bottom)
+| x_showBorderOnlyBeforeL        |   true  | x_showBorderOnlyBeforeL          | null       |是否在低于 android 5.0 版本上显示边框
 | x_shadowElevation        |   0  | x_shadowElevation          | null       |阴影大小|
 | x_useThemeGeneralShadowElevation        |   false  | x_useThemeGeneralShadowElevation          | null       |是否使用 theme 下的阴影大小|
 | x_shadowAlpha        |   0  | x_shadowAlpha          | null       |阴影透明度|
