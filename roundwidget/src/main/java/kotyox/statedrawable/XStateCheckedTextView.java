@@ -29,5 +29,6 @@ public class XStateCheckedTextView extends AppCompatCheckedTextView {
     private void init(Context context,AttributeSet attrs,int defStyleAttr){
         XStateCheckedTextViewDrawable stateDrawable = new XStateCheckedTextViewDrawable(this);
         stateDrawable.fromAttributeSet(context, attrs, defStyleAttr);
+        setClickable(true);
     }
 }

@@ -29,5 +29,6 @@ public class XStateRadioButton extends AppCompatRadioButton {
     private void init(Context context,AttributeSet attrs,int defStyleAttr){
         XStateRadioButtonDrawable stateDrawable = new XStateRadioButtonDrawable(this);
         stateDrawable.fromAttributeSet(context, attrs, defStyleAttr);
+        setClickable(true);
     }
 }

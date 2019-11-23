@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 
 import family.widget.com.roundwidget.R;
@@ -31,6 +30,12 @@ public class XEditTextDrawable extends GradientDrawable {
     private int mStrokeWidth = 0;
     private ColorStateList mStrokeColors;
     private boolean mShowBgColor;
+    private int mEnableColor;
+    private ColorStateList mDisableColor;
+    private ColorStateList mPressColor;
+    private int mFontEnableColor;
+    private int mFontPressColor;
+    private int mFontDisableColor;
 
     public XEditTextDrawable(){
         super();
@@ -112,7 +117,6 @@ public class XEditTextDrawable extends GradientDrawable {
         int mRadiusTopRight = ta.getDimensionPixelSize(R.styleable.XRoundEditText_x_radiusTopRight, 0);
         int mRadiusBottomLeft = ta.getDimensionPixelSize(R.styleable.XRoundEditText_x_radiusBottomLeft, 0);
         int mRadiusBottomRight = ta.getDimensionPixelSize(R.styleable.XRoundEditText_x_radiusBottomRight, 0);
-        int enableColor = ta.getColor(R.styleable.XRoundEditText_x_enableColor, ContextCompat.getColor(context, R.color.c_transparent));
 
         ta.recycle();
         if (colorBg != null) {
@@ -122,7 +126,7 @@ public class XEditTextDrawable extends GradientDrawable {
         setBgData(colorBg);
         setStrokeData(borderWidth, colorBorder);
         if (!mShowBgColor) {
-            setColor(enableColor);
+            setColor(mEnableColor);
         }
         if (mRadiusTopLeft > 0 || mRadiusTopRight > 0 || mRadiusBottomLeft > 0 || mRadiusBottomRight > 0) {
             float[] radii = new float[]{

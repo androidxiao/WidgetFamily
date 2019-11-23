@@ -29,5 +29,6 @@ public class XStateButton extends AppCompatButton {
     private void init(Context context,AttributeSet attrs,int defStyleAttr){
         XStateButtonDrawable stateDrawable = new XStateButtonDrawable(this);
         stateDrawable.fromAttributeSet(context, attrs, defStyleAttr);
+        setClickable(true);
     }
 }

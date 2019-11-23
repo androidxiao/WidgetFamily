@@ -88,12 +88,15 @@ public class XRoundButtonState {
 
     private void setDefaultColor() {
         if (mStartColor != 0) {
+            if (mMiddleColor == 0) {
+                mMiddleColor = mStartColor;
+            }
             int colors[] = {mStartColor, mMiddleColor, mEndColor};
             mEnableDrawable.setColors(colors);
-            if(mRadius == 0) {
-                float[] radii = new float[]{mRadiusTopLeft, mRadiusTopLeft,mRadiusTopRight,mRadiusTopRight, mRadiusBottomLeft,mRadiusBottomLeft, mRadiusBottomRight,mRadiusBottomRight};
+            if (mRadius == 0) {
+                float[] radii = new float[]{mRadiusTopLeft, mRadiusTopLeft, mRadiusTopRight, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomLeft, mRadiusBottomRight, mRadiusBottomRight};
                 mEnableDrawable.setCornerRadii(radii);
-            }else{
+            } else {
                 mEnableDrawable.setCornerRadius(mRadius);
             }
             mEnableDrawable.setOrientation(getOrientation(mGradientOrientation));
@@ -106,6 +109,25 @@ public class XRoundButtonState {
         if (mFontPressColor == 0) {
             mFontPressColor = mFontEnableColor;
         }
+    }
+
+
+    public XRoundButtonState build() {
+        setDefaultColor();
+        mEnableDrawable.fromAttributeSet(mColorBg, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+
+        mPressDrawable.fromAttributeSet(mPressColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+
+        mDisableDrawable.fromAttributeSet(mDisableColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+
+        mStateListDrawable = createStateListDrawable(mEnableDrawable, mPressDrawable, mDisableDrawable);
+
+        setBackgroundKeepingPadding(mView, mStateListDrawable);
+
+        if (mView instanceof TextView) {
+            ((TextView) mView).setTextColor(createColorStateList(mFontEnableColor, mFontPressColor, mFontEnableColor, mFontDisableColor));
+        }
+        return this;
     }
 
     public XRoundButtonState setBg(int colorBg) {
@@ -197,26 +219,5 @@ public class XRoundButtonState {
         mGradientOrientation = orientation;
         return this;
     }
-
-    public XRoundButtonState build() {
-        setDefaultColor();
-        if(mStartColor == 0) {
-            mEnableDrawable.fromAttributeSet(mColorBg, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
-        }
-
-        mPressDrawable.fromAttributeSet(mPressColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
-
-        mDisableDrawable.fromAttributeSet(mDisableColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
-
-        mStateListDrawable = createStateListDrawable(mEnableDrawable, mPressDrawable, mDisableDrawable);
-
-        setBackgroundKeepingPadding(mView, mStateListDrawable);
-
-        if (mView instanceof TextView) {
-            ((TextView) mView).setTextColor(createColorStateList(mFontEnableColor, mFontPressColor, mFontEnableColor, mFontDisableColor));
-        }
-        return this;
-    }
-
 
 }

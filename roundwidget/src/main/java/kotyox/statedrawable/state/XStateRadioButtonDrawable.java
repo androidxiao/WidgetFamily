@@ -22,7 +22,6 @@ public class XStateRadioButtonDrawable extends StateListDrawable {
 
     private final int[] STATE_SELECTED = new int[]{android.R.attr.state_selected};
     private final int[] STATE_PRESSED = new int[]{android.R.attr.state_pressed};
-    private final int[] STATE_ENABLED = new int[]{android.R.attr.state_enabled};
     private final int[] STATE_DISABLED = new int[]{-android.R.attr.state_enabled};
     private final int[] STATE_CHECK = new int[]{android.R.attr.state_checked};
     private final int[] STATE_UNCHECK = new int[]{-android.R.attr.state_checked};
@@ -38,7 +37,6 @@ public class XStateRadioButtonDrawable extends StateListDrawable {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.XStateRadioButton, defStyleAttr, 0);
         Drawable disabledDa = ta.getDrawable(R.styleable.XStateRadioButton_x_stateDisabled);
         Drawable selectDa = ta.getDrawable(R.styleable.XStateRadioButton_x_stateSelect);
-        Drawable enabledDa = ta.getDrawable(R.styleable.XStateRadioButton_x_stateEnabled);
         int pressedDaC = ta.getColor(R.styleable.XStateRadioButton_x_statePressedC, 0);
         int enabledDaC = ta.getColor(R.styleable.XStateRadioButton_x_stateEnabledC, 0);
         int disableDaC = ta.getColor(R.styleable.XStateRadioButton_x_stateDisableC, 0);
@@ -67,11 +65,6 @@ public class XStateRadioButtonDrawable extends StateListDrawable {
         if (disabledDa != null) {
             addState(STATE_DISABLED, disabledDa);
         }
-
-        if (enabledDa != null) {
-            addState(STATE_ENABLED, enabledDa);
-        }
-
 
         View view = mReference.get();
         setBounds(0, 0, getMinimumWidth(), getMinimumHeight());

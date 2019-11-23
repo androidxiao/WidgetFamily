@@ -182,12 +182,6 @@
         <attr name="x_radiusTopRight"/>
         <attr name="x_radiusBottomLeft"/>
         <attr name="x_radiusBottomRight"/>
-        <attr name="x_enableColor"/>
-        <attr name="x_disableColor"/>
-        <attr name="x_pressColor"/>
-        <attr name="x_fontEnableColor"/>
-        <attr name="x_fontPressColor"/>
-        <attr name="x_fontDisableColor"/>
     </declare-styleable>
 
     <declare-styleable name="XRoundLayout">
@@ -430,7 +424,6 @@
     <declare-styleable name="XStateCheckbox">
         <attr name="x_stateSelect"/>
         <attr name="x_statePressed"/>
-        <attr name="x_stateEnabled"/>
         <attr name="x_statePressedC"/>
         <attr name="x_stateEnabledC"/>
         <attr name="x_stateDisableC"/>
@@ -444,7 +437,6 @@
     <declare-styleable name="XStateCheckedTextView">
         <attr name="x_stateSelect"/>
         <attr name="x_statePressed"/>
-        <attr name="x_stateEnabled"/>
         <attr name="x_statePressedC"/>
         <attr name="x_stateEnabledC"/>
         <attr name="x_stateDisableC"/>
@@ -472,7 +464,6 @@
     <declare-styleable name="XStateRadioButton">
         <attr name="x_stateSelect"/>
         <attr name="x_statePressed"/>
-        <attr name="x_stateEnabled"/>
         <attr name="x_statePressedC"/>
         <attr name="x_stateEnabledC"/>
         <attr name="x_stateDisableC"/>

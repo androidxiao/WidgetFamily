@@ -58,7 +58,7 @@ public class XRoundConstraintLayoutState {
         mContext = mView.getContext();
     }
 
-    public void fromAttributeSet(Context context , AttributeSet set, int defStyleAttr) {
+    public void fromAttributeSet(Context context, AttributeSet set, int defStyleAttr) {
         TypedArray ta = context.obtainStyledAttributes(set, R.styleable.XRoundConstraintLayout, defStyleAttr, 0);
 
         mColorBg = ta.getColorStateList(R.styleable.XRoundConstraintLayout_x_backgroundColor);
@@ -81,8 +81,17 @@ public class XRoundConstraintLayoutState {
 
     private void setDefaultColor() {
         if (mStartColor != 0) {
+            if (mMiddleColor == 0) {
+                mMiddleColor = mStartColor;
+            }
             int colors[] = {mStartColor, mMiddleColor, mEndColor};
             mEnableDrawable.setColors(colors);
+            if (mRadius == 0) {
+                float[] radii = new float[]{mRadiusTopLeft, mRadiusTopLeft, mRadiusTopRight, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomLeft, mRadiusBottomRight, mRadiusBottomRight};
+                mEnableDrawable.setCornerRadii(radii);
+            } else {
+                mEnableDrawable.setCornerRadius(mRadius);
+            }
             mEnableDrawable.setOrientation(getOrientation(mGradientOrientation));
         }
 
@@ -93,6 +102,21 @@ public class XRoundConstraintLayoutState {
         if (mDisableColor == null) {
             mDisableColor = mColorBg;
         }
+    }
+
+    public XRoundConstraintLayoutState build() {
+        setDefaultColor();
+        mEnableDrawable.fromAttributeSet(mColorBg, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+
+        mPressDrawable.fromAttributeSet(mPressColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+
+        mDisableDrawable.fromAttributeSet(mDisableColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+
+        mStateListDrawable = createStateListDrawable(mEnableDrawable, mPressDrawable, mDisableDrawable);
+
+        setBackgroundKeepingPadding(mView, mStateListDrawable);
+
+        return this;
     }
 
     public XRoundConstraintLayoutState setBg(int colorBg) {
@@ -167,23 +191,6 @@ public class XRoundConstraintLayoutState {
 
     public XRoundConstraintLayoutState setGradientOrientation(int orientation) {
         mGradientOrientation = orientation;
-        return this;
-    }
-
-    public XRoundConstraintLayoutState build() {
-        setDefaultColor();
-        if(mStartColor == 0) {
-            mEnableDrawable.fromAttributeSet(mColorBg, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
-        }
-
-        mPressDrawable.fromAttributeSet(mPressColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
-
-        mDisableDrawable.fromAttributeSet(mDisableColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
-
-        mStateListDrawable = createStateListDrawable(mEnableDrawable, mPressDrawable, mDisableDrawable);
-
-        setBackgroundKeepingPadding(mView, mStateListDrawable);
-
         return this;
     }
 

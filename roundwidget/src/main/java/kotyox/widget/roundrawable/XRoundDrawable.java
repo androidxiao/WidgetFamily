@@ -34,6 +34,9 @@ public class XRoundDrawable extends GradientDrawable {
      * 不支持按压效果
      */
     public void setBgData(@Nullable ColorStateList colors) {
+        if (colors == null) {
+            return;
+        }
         if (hasNativeStateListAPI()) {
             super.setColor(colors);
         } else {

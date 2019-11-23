@@ -29,5 +29,6 @@ public class XStateImageView extends AppCompatImageView {
     private void init(Context context,AttributeSet attrs,int defStyleAttr){
         XStateImageViewDrawable stateDrawable = new XStateImageViewDrawable(this);
         stateDrawable.fromAttributeSet(context, attrs, defStyleAttr);
+        setClickable(true);
     }
 }

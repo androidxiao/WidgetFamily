@@ -29,5 +29,6 @@ public class XStateCheckbox extends AppCompatCheckBox {
     private void init(Context context,AttributeSet attrs,int defStyleAttr){
         XStateCheckboxDrawable stateDrawable = new XStateCheckboxDrawable(this);
         stateDrawable.fromAttributeSet(context, attrs, defStyleAttr);
+        setClickable(true);
     }
 }

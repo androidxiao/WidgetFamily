@@ -3,7 +3,6 @@ package kotyox.widget.state;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
@@ -59,7 +58,7 @@ public class XRoundLinearLayoutState {
         mContext = mView.getContext();
     }
 
-    public void fromAttributeSet(Context context , AttributeSet set, int defStyleAttr) {
+    public void fromAttributeSet(Context context, AttributeSet set, int defStyleAttr) {
         TypedArray ta = context.obtainStyledAttributes(set, R.styleable.XRoundLinearLayout, defStyleAttr, 0);
 
         mColorBg = ta.getColorStateList(R.styleable.XRoundLinearLayout_x_backgroundColor);
@@ -82,10 +81,18 @@ public class XRoundLinearLayoutState {
 
     private void setDefaultColor() {
         if (mStartColor != 0) {
+            if (mMiddleColor == 0) {
+                mMiddleColor = mStartColor;
+            }
             int colors[] = {mStartColor, mMiddleColor, mEndColor};
             mEnableDrawable.setColors(colors);
+            if (mRadius == 0) {
+                float[] radii = new float[]{mRadiusTopLeft, mRadiusTopLeft, mRadiusTopRight, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomLeft, mRadiusBottomRight, mRadiusBottomRight};
+                mEnableDrawable.setCornerRadii(radii);
+            } else {
+                mEnableDrawable.setCornerRadius(mRadius);
+            }
             mEnableDrawable.setOrientation(getOrientation(mGradientOrientation));
-            mEnableDrawable.setGradientType(GradientDrawable.LINEAR_GRADIENT);
         }
 
         if (mPressColor == null) {
@@ -95,6 +102,23 @@ public class XRoundLinearLayoutState {
         if (mDisableColor == null) {
             mDisableColor = mColorBg;
         }
+    }
+
+    public XRoundLinearLayoutState build() {
+        setDefaultColor();
+
+        mEnableDrawable.fromAttributeSet(mColorBg, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+
+
+        mPressDrawable.fromAttributeSet(mPressColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+
+        mDisableDrawable.fromAttributeSet(mDisableColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+
+        mStateListDrawable = createStateListDrawable(mEnableDrawable, mPressDrawable, mDisableDrawable);
+
+        setBackgroundKeepingPadding(mView, mStateListDrawable);
+
+        return this;
     }
 
     public XRoundLinearLayoutState setBg(int colorBg) {
@@ -169,23 +193,6 @@ public class XRoundLinearLayoutState {
 
     public XRoundLinearLayoutState setGradientOrientation(int orientation) {
         mGradientOrientation = orientation;
-        return this;
-    }
-
-    public XRoundLinearLayoutState build() {
-        setDefaultColor();
-        if(mStartColor == 0) {
-            mEnableDrawable.fromAttributeSet(mColorBg, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
-        }
-
-        mPressDrawable.fromAttributeSet(mPressColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
-
-        mDisableDrawable.fromAttributeSet(mDisableColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
-
-        mStateListDrawable = createStateListDrawable(mEnableDrawable, mPressDrawable, mDisableDrawable);
-
-        setBackgroundKeepingPadding(mView, mStateListDrawable);
-
         return this;
     }
 
