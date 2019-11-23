@@ -128,8 +128,12 @@ XRoundButtonState state = new XRoundButtonState(btn);
                 .build();
 ```
 # Thanks
->该库是对 `QMUI_Android` 中没有封装的属性进行了添加，并添加了一些诸如 `Checkbox`、`RadioButton` 等选中、未选中的图片切换自定属性，这样就不用再写 selector 文件了。
+
 [QMUI_Android](https://github.com/Tencent/QMUI_Android)
+
+>该库是对 `QMUI_Android` 中没有封装的属性进行了添加(如渐变色、并解决了一些属性同时设置时的冲突问题)，也添加了一些诸如 `Checkbox`、`RadioButton` 等选中、未选中的图片切换自定属性，这样就不用再写 selector 文件了。
+
+
 
 
 
