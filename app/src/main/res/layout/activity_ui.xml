@@ -8,78 +8,130 @@
     <kotyox.layout.XLinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XStateImageView" />
 
         <kotyox.statedrawable.XStateImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:x_statePressed="@mipmap/cb_sel"
             app:x_stateEnabled="@mipmap/cb_unsel"
-            app:x_stateSelect="@mipmap/cb_sel"/>
+            app:x_statePressed="@mipmap/cb_sel"
+            app:x_stateSelect="@mipmap/cb_sel" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/d_10"
+            android:background="@color/c_c1c1c1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XStateCheckbox" />
 
         <kotyox.statedrawable.XStateCheckbox
             android:id="@+id/cb1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:x_stateCheck="@mipmap/cb_sel"
-            app:x_stateUnCheck="@mipmap/cb_unsel"
-            app:x_stateDirection="left"
-            app:x_stateCheckC="@color/c_c1c1c1"
-            app:x_stateEnabledC="@color/c_1aad19"
             android:checked="true"
+            android:drawablePadding="@dimen/d_5"
             android:gravity="center"
-            android:text="测试"/>
+            android:text="继承于 AppCompatCheckBox"
+            app:x_stateCheck="@mipmap/cb_sel"
+            app:x_stateCheckC="@color/c_1aad19"
+            app:x_stateDirection="left"
+            app:x_stateEnabledC="@color/c_c1c1c1"
+            app:x_stateUnCheck="@mipmap/cb_unsel" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/d_10"
+            android:background="@color/c_c1c1c1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XStateButton"/>
+
+        <kotyox.statedrawable.XStateButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:x_stateEnabledC="@color/c_179c16"
+            app:x_statePressedC="@color/c_c1c1c1"
+            android:gravity="center"
+            android:drawablePadding="@dimen/d_5"
+            android:text="继承于 AppCompatButton"
+            app:x_stateUnCheck="@mipmap/cb_unsel"
+            app:x_statePressed="@mipmap/cb_sel"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/d_10"
+            android:background="@color/c_c1c1c1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XRoundButton"/>
 
         <kotyox.widget.XRoundButton
             android:id="@+id/btn"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="55dp"
             android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
             android:gravity="center"
             android:text="开始预测"
             android:textSize="24sp"
-            app:x_fontEnableColor="#fff"
             app:x_endColor="#5EA2FE"
-            app:x_startColor="#75CEEA"
+            app:x_borderWidth="@dimen/d_5"
+            android:clickable="true"
+            app:x_borderColor="@color/colorAccent"
+            app:x_fontPressColor="@color/colorAccent"
+            app:x_fontEnableColor="#fff"
             app:x_gradientOrientation="LEFT_RIGHT"
             app:x_isRadiusAdjustBounds="true"
             app:x_pressColor="@color/c_179c16"
-            android:clickable="true"
-            />
-
-
-        <kotyox.widget.XRoundButton
-            android:id="@+id/btn_start_calculate"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="32dp"
-            android:gravity="center"
-            android:text="开始预测"
-            android:textSize="24sp"
-            app:x_endColor="#5EA2FE"
-            app:x_fontEnableColor="#fff"
-            app:x_gradientOrientation="LEFT_RIGHT"
-            app:x_middleColor="#75CEEA"
             app:x_startColor="#75CEEA" />
 
-        <Button
+        <View
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/shape_rect_blue"
-            android:gravity="center"
-            android:text="登录" />
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/d_10"
+            android:background="@color/c_c1c1c1" />
 
-        <!--android:layout_margin="20dp"-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XRoundRelativeLayout"/>
+
 
         <kotyox.widget.XRoundRelativeLayout
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            app:x_borderColorViewGroup="@color/bg_gradient"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            app:x_borderColor="@color/colorAccent"
             app:x_borderWidth="1dp"
             app:x_endColor="#5EA2FE"
+            app:x_radius="@dimen/d_5"
             app:x_gradientOrientation="LEFT_RIGHT"
             app:x_middleColor="#75CEEA"
-            app:x_startColor="#75CEEA" />
+            app:x_startColor="#75CEEA"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/c_ffffff"
+                android:textSize="12sp"
+                android:layout_centerInParent="true"
+                android:text="我是继承于 RelativeLayout 的,通过自定义属性可以设置，上下左右分隔线、边框颜色、边框大小、圆角值、背景点击效果、以及阴影大小"/>
+        </kotyox.widget.XRoundRelativeLayout>
 
 
         <kotyox.widget.XRoundButton
@@ -97,103 +149,13 @@
             app:x_isRadiusAdjustBounds="false"
             app:x_middleColor="@color/colorAccent"
             app:x_pressColor="@color/c_press"
+            android:clickable="true"
             app:x_radiusTopLeft="5dp"
             app:x_startColor="@color/colorAccent" />
 
-        <kotyox.widget.XRoundButton
-            style="@style/CommonStyleView"
-            android:gravity="center"
-            android:text="按钮"
-            android:textSize="18sp"
-            app:x_borderColor="@color/colorAccent"
-            app:x_borderWidth="2dp"
-            app:x_fontDisableColor="@color/c_font_disable"
-            app:x_fontEnableColor="@color/c_font_press"
-            app:x_fontPressColor="@color/c_font_press"
-            app:x_isRadiusAdjustBounds="true"
-            app:x_pressColor="@color/c_press"
-            app:x_radius="5dp" />
-
         <kotyox.layout.XRelativeLayout
             style="@style/CommonStyleLayout"
-            app:x_backgroundColor="@color/colorAccent">
-
-            <kotyox.widget.XRoundButton
-                android:id="@+id/top_left"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:gravity="center"
-                android:text="左上角"
-                android:textSize="18sp"
-                app:x_borderColor="@color/colorAccent"
-                app:x_borderWidth="2dp"
-                app:x_disableColor="@color/c_disable"
-                app:x_fontDisableColor="@color/c_font_disable"
-                app:x_fontEnableColor="@color/c_font_normal"
-                app:x_fontPressColor="@color/c_font_press"
-                app:x_pressColor="@color/c_press"
-                app:x_radiusTopLeft="20dp" />
-
-            <kotyox.widget.XRoundButton
-                android:id="@+id/top_right"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_alignParentRight="true"
-                android:gravity="center"
-                android:text="右上角"
-                android:textSize="18sp"
-                app:x_borderColor="@color/colorAccent"
-                app:x_borderWidth="2dp"
-                app:x_disableColor="@color/c_disable"
-                app:x_fontDisableColor="@color/c_font_disable"
-                app:x_fontEnableColor="@color/c_font_normal"
-                app:x_fontPressColor="@color/c_font_press"
-                app:x_pressColor="@color/c_press"
-                app:x_radiusTopRight="20dp" />
-
-            <kotyox.widget.XRoundButton
-                android:id="@+id/bottom_left"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_below="@+id/top_left"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="左下角"
-                android:textSize="18sp"
-                app:x_borderColor="@color/colorAccent"
-                app:x_borderWidth="2dp"
-                app:x_disableColor="@color/c_disable"
-                app:x_fontDisableColor="@color/c_font_disable"
-                app:x_fontEnableColor="@color/c_font_normal"
-                app:x_fontPressColor="@color/c_font_press"
-                app:x_pressColor="@color/c_press"
-                app:x_radiusBottomLeft="20dp" />
-
-            <kotyox.widget.XRoundButton
-                android:id="@+id/bottom_right"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_below="@+id/top_right"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="右下角"
-                android:textSize="18sp"
-                app:x_borderColor="@color/colorAccent"
-                app:x_borderWidth="2dp"
-                app:x_disableColor="@color/c_disable"
-                app:x_fontDisableColor="@color/c_font_disable"
-                app:x_fontEnableColor="@color/c_font_normal"
-                app:x_fontPressColor="@color/c_font_press"
-                app:x_pressColor="@color/c_press"
-                app:x_radiusBottomRight="20dp" />
-
-        </kotyox.layout.XRelativeLayout>
-
-        <kotyox.layout.XLinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+            app:x_backgroundColor="@color/colorAccent"
             app:x_bottomDividerColor="@color/colorAccent"
             app:x_bottomDividerHeight="2dp"
             app:x_bottomDividerInsetLeft="20dp"
@@ -211,12 +173,82 @@
             app:x_topDividerInsetLeft="20dp"
             app:x_topDividerInsetRight="20dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="我是 LinearLayout，通过自定义属性就可以设置，上下左右分隔线、边框颜色、边框大小、圆角值、背景点击效果、以及阴影大小" />
-        </kotyox.layout.XLinearLayout>
+            <kotyox.widget.XRoundButton
+                android:id="@+id/top_left"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:gravity="center"
+                android:text="左上角"
+                android:clickable="true"
+                android:textSize="18sp"
+                app:x_borderColor="@color/colorAccent"
+                app:x_borderWidth="2dp"
+                app:x_disableColor="@color/c_disable"
+                app:x_fontDisableColor="@color/c_font_disable"
+                app:x_fontEnableColor="@color/colorAccent"
+                app:x_fontPressColor="@color/c_font_press"
+                app:x_pressColor="@color/c_press"
+                app:x_radiusTopLeft="20dp" />
+
+            <kotyox.widget.XRoundButton
+                android:id="@+id/top_right"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:text="右上角"
+                android:textSize="18sp"
+                app:x_borderColor="@color/colorAccent"
+                app:x_borderWidth="2dp"
+                android:clickable="true"
+                app:x_disableColor="@color/c_disable"
+                app:x_fontDisableColor="@color/c_font_disable"
+                app:x_fontEnableColor="@color/colorAccent"
+                app:x_fontPressColor="@color/c_font_press"
+                app:x_pressColor="@color/c_press"
+                app:x_radiusTopRight="20dp" />
+
+
+            <kotyox.widget.XRoundButton
+                android:id="@+id/bottom_left"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/top_left"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="左下角"
+                android:textSize="18sp"
+                app:x_borderColor="@color/colorAccent"
+                app:x_borderWidth="2dp"
+                android:clickable="true"
+                app:x_disableColor="@color/c_disable"
+                app:x_fontDisableColor="@color/c_font_disable"
+                app:x_fontEnableColor="@color/colorAccent"
+                app:x_fontPressColor="@color/c_font_press"
+                app:x_pressColor="@color/c_press"
+                app:x_radiusBottomLeft="20dp" />
+
+            <kotyox.widget.XRoundButton
+                android:id="@+id/bottom_right"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/top_right"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="右下角"
+                android:clickable="true"
+                android:textSize="18sp"
+                app:x_borderColor="@color/colorAccent"
+                app:x_borderWidth="2dp"
+                app:x_disableColor="@color/c_disable"
+                app:x_fontDisableColor="@color/c_font_disable"
+                app:x_fontEnableColor="@color/colorAccent"
+                app:x_fontPressColor="@color/c_font_press"
+                app:x_pressColor="@color/c_press"
+                app:x_radiusBottomRight="20dp" />
+
+        </kotyox.layout.XRelativeLayout>
 
         <kotyox.widget.XRoundEditText
             android:layout_width="200dp"
@@ -225,81 +257,13 @@
             android:hint="请输入内容..."
             android:orientation="vertical"
             android:padding="10dp"
-            android:textColor="@color/c_ffffff"
-            android:textColorHint="@color/c_ffffff"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent"
             app:x_borderColor="@color/colorPrimaryDark"
             app:x_borderWidth="1dp"
             app:x_radius="10dp">
 
         </kotyox.widget.XRoundEditText>
-
-        <kotyox.widget.XRoundConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            app:x_backgroundColor="@color/colorPrimaryDark"
-            app:x_borderColor="@color/colorAccent"
-            app:x_borderWidth="2dp"
-            app:x_radius="10dp">
-
-            <kotyox.widget.XRoundButton
-                android:id="@+id/btn2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Java Code Set"
-                android:textColor="@color/colorAccent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </kotyox.widget.XRoundConstraintLayout>
-
-        <kotyox.layout.XLinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical"
-            app:x_topDividerColor="@color/colorAccent"
-            app:x_topDividerHeight="2dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="列表一(外层是 LinearLayout)" />
-
-        </kotyox.layout.XLinearLayout>
-
-
-        <kotyox.layout.XRelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:x_topDividerColor="@color/colorAccent"
-            app:x_topDividerHeight="2dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="列表二(外层是 RelativeLayout)" />
-
-        </kotyox.layout.XRelativeLayout>
-
-
-        <kotyox.layout.XFrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="vertical"
-            app:x_topDividerColor="@color/colorAccent"
-            app:x_topDividerHeight="2dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:text="列表三(外层是 FrameLayout)" />
-
-        </kotyox.layout.XFrameLayout>
 
     </kotyox.layout.XLinearLayout>
 
