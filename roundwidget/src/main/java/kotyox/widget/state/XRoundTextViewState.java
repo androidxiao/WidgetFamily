@@ -34,6 +34,7 @@ public class XRoundTextViewState {
     private ColorStateList mColorBorder;
     private int mBorderWidth;
     private boolean mIsRadiusAdjustBounds;
+    private boolean mGradientPressClick;
     private int mRadius;
     private int mRadiusTopLeft;
     private int mRadiusTopRight;
@@ -41,6 +42,8 @@ public class XRoundTextViewState {
     private int mRadiusBottomRight;
     private ColorStateList mDisableColor;
     private ColorStateList mPressColor;
+    private ColorStateList mSelectColor;
+    private ColorStateList mUnSelectColor;
     private int mFontEnableColor;
     private int mFontPressColor;
     private int mFontDisableColor;
@@ -50,6 +53,8 @@ public class XRoundTextViewState {
     private XRoundDrawable mEnableDrawable;
     private XRoundDrawable mPressDrawable;
     private XRoundDrawable mDisableDrawable;
+    private XRoundDrawable mSelectDrawable;
+    private XRoundDrawable mUnSelectDrawable;
     private View mView;
     private StateListDrawable mStateListDrawable;
     private int mGradientOrientation;
@@ -59,6 +64,8 @@ public class XRoundTextViewState {
         mEnableDrawable = new XRoundDrawable();
         mPressDrawable = new XRoundDrawable();
         mDisableDrawable = new XRoundDrawable();
+        mSelectDrawable = new XRoundDrawable();
+        mUnSelectDrawable = new XRoundDrawable();
         mView = mReference.get();
         mContext = mView.getContext();
     }
@@ -70,6 +77,7 @@ public class XRoundTextViewState {
         mColorBorder = ta.getColorStateList(R.styleable.XRoundTextView_x_borderColor);
         mBorderWidth = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_borderWidth, 0);
         mIsRadiusAdjustBounds = ta.getBoolean(R.styleable.XRoundTextView_x_isRadiusAdjustBounds, false);
+        mGradientPressClick = ta.getBoolean(R.styleable.XRoundButton_x_gradient_press_click, false);
         mRadius = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radius, 0);
         mRadiusTopLeft = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radiusTopLeft, 0);
         mRadiusTopRight = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radiusTopRight, 0);
@@ -77,6 +85,8 @@ public class XRoundTextViewState {
         mRadiusBottomRight = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radiusBottomRight, 0);
         mDisableColor = ta.getColorStateList(R.styleable.XRoundTextView_x_disableColor);
         mPressColor = ta.getColorStateList(R.styleable.XRoundTextView_x_pressColor);
+        mSelectColor = ta.getColorStateList(R.styleable.XRoundTextView_x_selectColor);
+        mUnSelectColor = ta.getColorStateList(R.styleable.XRoundTextView_x_unselectColor);
         mFontEnableColor = ta.getColor(R.styleable.XRoundTextView_x_fontEnableColor, 0);
         mFontPressColor = ta.getColor(R.styleable.XRoundTextView_x_fontPressColor, 0);
         mFontDisableColor = ta.getColor(R.styleable.XRoundTextView_x_fontDisableColor, 0);
@@ -107,8 +117,18 @@ public class XRoundTextViewState {
             mPressColor = mColorBg;
         }
 
+        if (mUnSelectColor == null) {
+            mUnSelectColor = mColorBg;
+        }
+
         if (mFontPressColor == 0) {
             mFontPressColor = mFontEnableColor;
+        }
+
+        if (!mGradientPressClick && mStartColor !=0) {
+            mView.setEnabled(false);
+            mFontDisableColor = mFontEnableColor;
+            mDisableDrawable  = mEnableDrawable;
         }
     }
 
@@ -120,7 +140,11 @@ public class XRoundTextViewState {
 
         mDisableDrawable.fromAttributeSet(mDisableColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
 
-        mStateListDrawable = createStateListDrawable(mEnableDrawable, mPressDrawable, mDisableDrawable);
+        mSelectDrawable.fromAttributeSet(mSelectColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+
+        mUnSelectDrawable.fromAttributeSet(mUnSelectColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+
+        mStateListDrawable = createStateListDrawable(mEnableDrawable, mPressDrawable, mDisableDrawable,mSelectDrawable,mUnSelectDrawable);
 
         setBackgroundKeepingPadding(mView, mStateListDrawable);
 

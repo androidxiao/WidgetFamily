@@ -8,6 +8,8 @@
     <attr name="x_borderWidth" format="dimension"/>
     <!-- 圆角是否要自适应为 View 高度的一半 -->
     <attr name="x_isRadiusAdjustBounds" format="boolean"/>
+    <!-- 设置渐变色时，如果仅仅为了展示效果可设置是否可以 press     -->
+    <attr name="x_gradient_press_click" format="boolean"/>
     <!-- 同时指定四个方向的圆角 -->
     <attr name="x_radius" format="dimension"/>
     <!-- 指定左上方圆角的大小 -->
@@ -22,6 +24,10 @@
     <attr name="x_disableColor" format="color"/>
     <!-- 按下背景色 -->
     <attr name="x_pressColor" format="color"/>
+    <!-- select 时背景色 -->
+    <attr name="x_selectColor" format="color"/>
+    <!-- select false 时背景色 -->
+    <attr name="x_unselectColor" format="color"/>
     <!-- 正常字体颜色 -->
     <attr name="x_fontEnableColor" format="color"/>
     <!-- 按下字体的颜色 -->
@@ -63,6 +69,7 @@
         <attr name="x_borderColor"/>
         <attr name="x_borderWidth"/>
         <attr name="x_isRadiusAdjustBounds"/>
+        <attr name="x_gradient_press_click"/>
         <attr name="x_radius"/>
         <attr name="x_radiusTopLeft"/>
         <attr name="x_radiusTopRight"/>
@@ -84,6 +91,7 @@
         <attr name="x_borderColor"/>
         <attr name="x_borderWidth"/>
         <attr name="x_isRadiusAdjustBounds"/>
+        <attr name="x_gradient_press_click"/>
         <attr name="x_radius"/>
         <attr name="x_radiusTopLeft"/>
         <attr name="x_radiusTopRight"/>
@@ -91,6 +99,8 @@
         <attr name="x_radiusBottomRight"/>
         <attr name="x_disableColor"/>
         <attr name="x_pressColor"/>
+        <attr name="x_selectColor"/>
+        <attr name="x_unselectColor"/>
         <attr name="x_fontEnableColor"/>
         <attr name="x_fontPressColor"/>
         <attr name="x_fontDisableColor"/>
@@ -105,6 +115,7 @@
         <attr name="x_borderColor"/>
         <attr name="x_borderWidth"/>
         <attr name="x_isRadiusAdjustBounds"/>
+        <attr name="x_gradient_press_click"/>
         <attr name="x_radius"/>
         <attr name="x_radiusTopLeft"/>
         <attr name="x_radiusTopRight"/>
@@ -112,6 +123,8 @@
         <attr name="x_radiusBottomRight"/>
         <attr name="x_disableColor"/>
         <attr name="x_pressColor"/>
+        <attr name="x_selectColor"/>
+        <attr name="x_unselectColor"/>
         <attr name="x_startColor"/>
         <attr name="x_middleColor"/>
         <attr name="x_endColor"/>
@@ -123,6 +136,7 @@
         <attr name="x_borderColor"/>
         <attr name="x_borderWidth"/>
         <attr name="x_isRadiusAdjustBounds"/>
+        <attr name="x_gradient_press_click"/>
         <attr name="x_radius"/>
         <attr name="x_radiusTopLeft"/>
         <attr name="x_radiusTopRight"/>
@@ -130,6 +144,8 @@
         <attr name="x_radiusBottomRight"/>
         <attr name="x_disableColor"/>
         <attr name="x_pressColor"/>
+        <attr name="x_selectColor"/>
+        <attr name="x_unselectColor"/>
         <attr name="x_startColor"/>
         <attr name="x_middleColor"/>
         <attr name="x_endColor"/>
@@ -141,6 +157,7 @@
         <attr name="x_borderColor"/>
         <attr name="x_borderWidth"/>
         <attr name="x_isRadiusAdjustBounds"/>
+        <attr name="x_gradient_press_click"/>
         <attr name="x_radius"/>
         <attr name="x_radiusTopLeft"/>
         <attr name="x_radiusTopRight"/>
@@ -148,6 +165,8 @@
         <attr name="x_radiusBottomRight"/>
         <attr name="x_disableColor"/>
         <attr name="x_pressColor"/>
+        <attr name="x_selectColor"/>
+        <attr name="x_unselectColor"/>
         <attr name="x_startColor"/>
         <attr name="x_middleColor"/>
         <attr name="x_endColor"/>
@@ -159,6 +178,7 @@
         <attr name="x_borderColor"/>
         <attr name="x_borderWidth"/>
         <attr name="x_isRadiusAdjustBounds"/>
+        <attr name="x_gradient_press_click"/>
         <attr name="x_radius"/>
         <attr name="x_radiusTopLeft"/>
         <attr name="x_radiusTopRight"/>
@@ -166,6 +186,8 @@
         <attr name="x_radiusBottomRight"/>
         <attr name="x_disableColor"/>
         <attr name="x_pressColor"/>
+        <attr name="x_selectColor"/>
+        <attr name="x_unselectColor"/>
         <attr name="x_startColor"/>
         <attr name="x_middleColor"/>
         <attr name="x_endColor"/>

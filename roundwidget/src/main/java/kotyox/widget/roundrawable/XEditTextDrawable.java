@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.support.annotation.Nullable;
@@ -26,16 +27,14 @@ import family.widget.com.roundwidget.R;
  * </p>
  */
 public class XEditTextDrawable extends GradientDrawable {
+    /**
+     * 圆角大小是否自适应为 View 高度的一半
+     */
+    private boolean mRadiusAdjustBounds = false;
     private ColorStateList mFillColors;
     private int mStrokeWidth = 0;
     private ColorStateList mStrokeColors;
-    private boolean mShowBgColor;
-    private int mEnableColor;
-    private ColorStateList mDisableColor;
-    private ColorStateList mPressColor;
-    private int mFontEnableColor;
-    private int mFontPressColor;
-    private int mFontDisableColor;
+
 
     public XEditTextDrawable(){
         super();
@@ -107,6 +106,22 @@ public class XEditTextDrawable extends GradientDrawable {
     }
 
 
+    /**
+     * 设置圆角大小是否自动适应为 View 高度的一半
+     */
+    public void setIsRadiusAdjustBounds(boolean isRadiusAdjustBounds) {
+        mRadiusAdjustBounds = isRadiusAdjustBounds;
+    }
+
+    @Override
+    protected void onBoundsChange(Rect r) {
+        super.onBoundsChange(r);
+        if (mRadiusAdjustBounds) {
+            //修改圆角为短边的一半
+            setCornerRadius(Math.min(r.width(), r.height()) / 2);
+        }
+    }
+
     public void fromAttributeSet(Context context, AttributeSet attrs, int defStyleAttr) {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.XRoundEditText, defStyleAttr, 0);
         ColorStateList colorBg = ta.getColorStateList(R.styleable.XRoundEditText_x_backgroundColor);
@@ -117,17 +132,12 @@ public class XEditTextDrawable extends GradientDrawable {
         int mRadiusTopRight = ta.getDimensionPixelSize(R.styleable.XRoundEditText_x_radiusTopRight, 0);
         int mRadiusBottomLeft = ta.getDimensionPixelSize(R.styleable.XRoundEditText_x_radiusBottomLeft, 0);
         int mRadiusBottomRight = ta.getDimensionPixelSize(R.styleable.XRoundEditText_x_radiusBottomRight, 0);
+        mRadiusAdjustBounds = ta.getBoolean(R.styleable.XRoundEditText_x_isRadiusAdjustBounds, false);
 
         ta.recycle();
-        if (colorBg != null) {
-            mShowBgColor = true;
-        }
 
         setBgData(colorBg);
         setStrokeData(borderWidth, colorBorder);
-        if (!mShowBgColor) {
-            setColor(mEnableColor);
-        }
         if (mRadiusTopLeft > 0 || mRadiusTopRight > 0 || mRadiusBottomLeft > 0 || mRadiusBottomRight > 0) {
             float[] radii = new float[]{
                     mRadiusTopLeft, mRadiusTopLeft,
@@ -140,6 +150,7 @@ public class XEditTextDrawable extends GradientDrawable {
             setCornerRadius(mRadius);
         }
 
+        setIsRadiusAdjustBounds(mRadiusAdjustBounds);
     }
 
 

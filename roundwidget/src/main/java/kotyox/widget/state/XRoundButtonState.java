@@ -34,6 +34,7 @@ public class XRoundButtonState {
     private ColorStateList mColorBorder;
     private int mBorderWidth;
     private boolean mIsRadiusAdjustBounds;
+    private boolean mGradientPressClick;
     private int mRadius;
     private int mRadiusTopLeft;
     private int mRadiusTopRight;
@@ -69,6 +70,7 @@ public class XRoundButtonState {
         mColorBorder = ta.getColorStateList(R.styleable.XRoundButton_x_borderColor);
         mBorderWidth = ta.getDimensionPixelSize(R.styleable.XRoundButton_x_borderWidth, 0);
         mIsRadiusAdjustBounds = ta.getBoolean(R.styleable.XRoundButton_x_isRadiusAdjustBounds, false);
+        mGradientPressClick = ta.getBoolean(R.styleable.XRoundButton_x_gradient_press_click, true);
         mRadius = ta.getDimensionPixelSize(R.styleable.XRoundButton_x_radius, 0);
         mRadiusTopLeft = ta.getDimensionPixelSize(R.styleable.XRoundButton_x_radiusTopLeft, 0);
         mRadiusTopRight = ta.getDimensionPixelSize(R.styleable.XRoundButton_x_radiusTopRight, 0);
@@ -109,16 +111,24 @@ public class XRoundButtonState {
         if (mFontPressColor == 0) {
             mFontPressColor = mFontEnableColor;
         }
-    }
 
+        if (!mGradientPressClick) {
+            mView.setEnabled(false);
+            mFontDisableColor = mFontEnableColor;
+            mDisableDrawable  = mEnableDrawable;
+        }
+
+    }
 
     public XRoundButtonState build() {
         setDefaultColor();
+
         mEnableDrawable.fromAttributeSet(mColorBg, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
 
         mPressDrawable.fromAttributeSet(mPressColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
 
         mDisableDrawable.fromAttributeSet(mDisableColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
+
 
         mStateListDrawable = createStateListDrawable(mEnableDrawable, mPressDrawable, mDisableDrawable);
 
