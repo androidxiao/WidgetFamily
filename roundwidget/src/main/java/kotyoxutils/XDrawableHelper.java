@@ -31,7 +31,14 @@ public class XDrawableHelper {
      */
     public static StateListDrawable createStateListDrawable(GradientDrawable enableDrawable, GradientDrawable pressDrawable,
                                                             GradientDrawable disableDrawable) {
-        return createStateListDrawable(enableDrawable, pressDrawable, disableDrawable, null, null);
+        StateListDrawable stateListDrawable = new StateListDrawable();
+        //注意该处的顺序，只要有一个状态与之相配，背景就会被换掉
+        //所以不要把大范围放在前面了，如果sd.addState(new[]{},normal)放在第一个的话，就没有什么效果了
+        stateListDrawable.addState(new int[]{android.R.attr.state_pressed}, pressDrawable);
+        stateListDrawable.addState(new int[]{-android.R.attr.state_enabled}, disableDrawable);
+        stateListDrawable.addState(new int[]{android.R.attr.state_enabled}, enableDrawable);
+        stateListDrawable.addState(new int[]{}, enableDrawable);
+        return stateListDrawable;
     }
 
     /**
@@ -48,12 +55,12 @@ public class XDrawableHelper {
         StateListDrawable stateListDrawable = new StateListDrawable();
         //注意该处的顺序，只要有一个状态与之相配，背景就会被换掉
         //所以不要把大范围放在前面了，如果sd.addState(new[]{},normal)放在第一个的话，就没有什么效果了
-        stateListDrawable.addState(new int[]{android.R.attr.state_pressed},pressDrawable);
-        stateListDrawable.addState(new int[]{android.R.attr.state_selected},selectedDrawable);
-        stateListDrawable.addState(new int[]{-android.R.attr.state_selected},unSelectedDrawable);
-        stateListDrawable.addState(new int[]{-android.R.attr.state_enabled},disableDrawable);
-        stateListDrawable.addState(new int[]{android.R.attr.state_enabled},enableDrawable);
-        stateListDrawable.addState(new int[]{},enableDrawable);
+        stateListDrawable.addState(new int[]{android.R.attr.state_pressed}, pressDrawable);
+        stateListDrawable.addState(new int[]{android.R.attr.state_selected}, selectedDrawable);
+        stateListDrawable.addState(new int[]{-android.R.attr.state_selected}, unSelectedDrawable);
+        stateListDrawable.addState(new int[]{-android.R.attr.state_enabled}, disableDrawable);
+        stateListDrawable.addState(new int[]{android.R.attr.state_enabled}, enableDrawable);
+        stateListDrawable.addState(new int[]{}, enableDrawable);
         return stateListDrawable;
     }
 
@@ -80,10 +87,11 @@ public class XDrawableHelper {
 
     /**
      * 渐变的方向
+     *
      * @param orientation
      * @return
      */
-    public static GradientDrawable.Orientation getOrientation(int orientation){
+    public static GradientDrawable.Orientation getOrientation(int orientation) {
         switch (orientation) {
             case 0:
                 return GradientDrawable.Orientation.TOP_BOTTOM;
@@ -107,6 +115,7 @@ public class XDrawableHelper {
 
     /**
      * 构造 ColorStateList
+     *
      * @param color
      * @return
      */

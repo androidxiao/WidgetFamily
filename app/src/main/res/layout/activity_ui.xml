@@ -11,11 +11,15 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <kotyox.widget.XRoundEditText
+        <kotyox.widget.XRoundConstraintLayout
+            android:id="@+id/rl"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            app:x_isRadiusAdjustBounds="true"
-            android:hint="啦啦啦"
+            app:x_radius="10dp"
+            app:x_pressColor="@color/c_179c16"
+            android:clickable="true"
+            app:x_selectColor="@color/c_c1c1c1"
+            app:x_unselectColor="@color/colorPrimaryDark"
             android:gravity="center_vertical"
             app:x_backgroundColor="@color/colorAccent"/>
 
@@ -23,7 +27,7 @@
             android:id="@+id/cl"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:x_selectColor="@color/c_c1c1c1"
+            app:x_selectColor="@color/colorPrimary"
             app:x_unselectColor="@color/c_073680"/>
 
         <kotyox.widget.XRoundTextView
@@ -35,6 +39,7 @@
             android:gravity="center"
             android:text="开始预测aaa"
             android:textSize="24sp"
+            app:x_backgroundColor="@color/colorPrimary"
             app:x_selectColor="@color/colorAccent"
             app:x_borderWidth="@dimen/d_5"
             app:x_borderColor="@color/colorAccent"

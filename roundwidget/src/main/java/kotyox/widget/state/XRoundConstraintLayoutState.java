@@ -115,7 +115,7 @@ public class XRoundConstraintLayoutState {
 
         if (!mGradientPressClick) {
             mView.setEnabled(false);
-            mDisableDrawable  = mEnableDrawable;
+            mDisableDrawable = mEnableDrawable;
         }
     }
 
@@ -131,7 +131,11 @@ public class XRoundConstraintLayoutState {
 
         mUnSelectDrawable.fromAttributeSet(mUnSelectColor, mColorBorder, mBorderWidth, mRadiusTopLeft, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomRight, mIsRadiusAdjustBounds, mRadius);
 
-        mStateListDrawable = createStateListDrawable(mEnableDrawable, mPressDrawable, mDisableDrawable,mSelectDrawable,mUnSelectDrawable);
+        if (mSelectColor != null || mUnSelectColor != null) {
+            mStateListDrawable = createStateListDrawable(mEnableDrawable, mPressDrawable, mDisableDrawable, mSelectDrawable, mUnSelectDrawable);
+        } else {
+            mStateListDrawable = createStateListDrawable(mEnableDrawable, mPressDrawable, mDisableDrawable);
+        }
 
 
         setBackgroundKeepingPadding(mView, mStateListDrawable);

@@ -11,6 +11,7 @@ import com.widget.family.R;
 
 import kotyox.statedrawable.XStateCheckbox;
 import kotyox.widget.XRoundButton;
+import kotyox.widget.XRoundConstraintLayout;
 import kotyox.widget.XRoundRelativeLayout;
 import kotyox.widget.XRoundTextView;
 import kotyox.widget.state.XRoundButtonState;
@@ -32,6 +33,16 @@ public class UIActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ui);
         XRoundRelativeLayout cl = findViewById(R.id.cl);
         cl.setSelected(true);
+
+        final XRoundConstraintLayout xrcl = findViewById(R.id.rl);
+        xrcl.setSelected(true);
+
+        xrcl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                xrcl.setSelected(false);
+            }
+        });
 
         final XRoundTextView tv = findViewById(R.id.btn1);
         tv.setSelected(true);
