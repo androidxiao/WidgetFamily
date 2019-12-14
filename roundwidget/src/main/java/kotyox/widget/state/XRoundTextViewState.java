@@ -44,6 +44,8 @@ public class XRoundTextViewState {
     private ColorStateList mPressColor;
     private ColorStateList mSelectColor;
     private ColorStateList mUnSelectColor;
+    private int mSelectTextColor;
+    private int mUnSelectTextColor;
     private int mFontEnableColor;
     private int mFontPressColor;
     private int mFontDisableColor;
@@ -87,6 +89,8 @@ public class XRoundTextViewState {
         mPressColor = ta.getColorStateList(R.styleable.XRoundTextView_x_pressColor);
         mSelectColor = ta.getColorStateList(R.styleable.XRoundTextView_x_selectColor);
         mUnSelectColor = ta.getColorStateList(R.styleable.XRoundTextView_x_unselectColor);
+        mSelectTextColor = ta.getColor(R.styleable.XRoundTextView_x_selectTextColor, 0);
+        mUnSelectTextColor = ta.getColor(R.styleable.XRoundTextView_x_unselectTextColor, 0);
         mFontEnableColor = ta.getColor(R.styleable.XRoundTextView_x_fontEnableColor, 0);
         mFontPressColor = ta.getColor(R.styleable.XRoundTextView_x_fontPressColor, 0);
         mFontDisableColor = ta.getColor(R.styleable.XRoundTextView_x_fontDisableColor, 0);
@@ -153,7 +157,11 @@ public class XRoundTextViewState {
         setBackgroundKeepingPadding(mView, mStateListDrawable);
 
         if (mView instanceof TextView) {
-            ((TextView) mView).setTextColor(createColorStateList(mFontEnableColor, mFontPressColor, mFontEnableColor, mFontDisableColor));
+            if(mSelectTextColor !=0) {
+                ((TextView) mView).setTextColor(createColorStateList(mFontEnableColor, mFontPressColor, mFontEnableColor, mFontDisableColor, mSelectTextColor, mUnSelectTextColor));
+            }else {
+                ((TextView) mView).setTextColor(createColorStateList(mFontEnableColor, mFontPressColor, mFontEnableColor, mFontDisableColor));
+            }
         }
         return this;
     }
@@ -211,6 +219,16 @@ public class XRoundTextViewState {
 
     public XRoundTextViewState setDisableColor(int disableColor) {
         mDisableColor = colorStateList(ContextCompat.getColor(mContext, disableColor));
+        return this;
+    }
+
+    public XRoundTextViewState setSelectTextColor(int selectTextColor) {
+        mSelectTextColor = ContextCompat.getColor(mContext, selectTextColor);
+        return this;
+    }
+
+    public XRoundTextViewState setUnSelectTextColor(int unSelectTextColor) {
+        mUnSelectTextColor = ContextCompat.getColor(mContext, unSelectTextColor);
         return this;
     }
 

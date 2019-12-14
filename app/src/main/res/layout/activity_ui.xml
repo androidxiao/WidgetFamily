@@ -15,20 +15,18 @@
             android:id="@+id/rl"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            app:x_radius="10dp"
-            app:x_pressColor="@color/c_179c16"
             android:clickable="true"
-            app:x_selectColor="@color/c_c1c1c1"
-            app:x_unselectColor="@color/colorPrimaryDark"
             android:gravity="center_vertical"
-            app:x_backgroundColor="@color/colorAccent"/>
+            app:x_backgroundColor="@color/colorAccent"
+            app:x_pressColor="@color/c_179c16"
+            app:x_radius="10dp" />
 
         <kotyox.widget.XRoundRelativeLayout
             android:id="@+id/cl"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             app:x_selectColor="@color/colorPrimary"
-            app:x_unselectColor="@color/c_073680"/>
+            app:x_unselectColor="@color/c_073680" />
 
         <kotyox.widget.XRoundTextView
             android:id="@+id/btn1"
@@ -40,14 +38,15 @@
             android:text="开始预测aaa"
             android:textSize="24sp"
             app:x_backgroundColor="@color/colorPrimary"
-            app:x_selectColor="@color/colorAccent"
-            app:x_borderWidth="@dimen/d_5"
             app:x_borderColor="@color/colorAccent"
-            app:x_fontPressColor="@color/colorAccent"
-            app:x_fontEnableColor="#fff"
-            app:x_unselectColor="@color/c_073680"
+            app:x_borderWidth="@dimen/d_5"
             app:x_isRadiusAdjustBounds="true"
-            />
+            app:x_pressColor="@color/cardview_dark_background"
+            app:x_fontEnableColor="@color/c_font_disable"
+            app:x_selectColor="@color/colorAccent"
+            app:x_selectTextColor="@color/c_179c16"
+            app:x_unselectColor="@color/c_073680"
+            app:x_unselectTextColor="@color/c_font_press" />
 
         <kotyox.widget.XRoundButton
             android:id="@+id/btn2"
@@ -55,18 +54,17 @@
             android:layout_height="55dp"
             android:layout_marginLeft="32dp"
             android:layout_marginRight="32dp"
+            android:clickable="true"
             android:gravity="center"
             android:text="开始预测123"
             android:textSize="24sp"
-            app:x_pressColor="@color/c_073680"
             app:x_backgroundColor="@color/c_179c16"
-            android:clickable="true"
-            app:x_borderWidth="@dimen/d_5"
             app:x_borderColor="@color/colorAccent"
-            app:x_fontPressColor="@color/colorAccent"
+            app:x_borderWidth="@dimen/d_5"
             app:x_fontEnableColor="#fff"
+            app:x_fontPressColor="@color/colorAccent"
             app:x_isRadiusAdjustBounds="true"
-            />
+            app:x_pressColor="@color/c_073680" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -114,18 +112,18 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="XStateButton"/>
+            android:text="XStateButton" />
 
         <kotyox.statedrawable.XStateButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:x_stateEnabledC="@color/c_179c16"
-            app:x_statePressedC="@color/c_c1c1c1"
-            android:gravity="center"
             android:drawablePadding="@dimen/d_5"
+            android:gravity="center"
             android:text="继承于 AppCompatButton"
-            app:x_stateUnCheck="@mipmap/cb_unsel"
-            app:x_statePressed="@mipmap/cb_sel"/>
+            app:x_stateEnabledC="@color/c_179c16"
+            app:x_statePressed="@mipmap/cb_sel"
+            app:x_statePressedC="@color/c_c1c1c1"
+            app:x_stateUnCheck="@mipmap/cb_unsel" />
 
         <View
             android:layout_width="match_parent"
@@ -136,7 +134,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="XRoundButton"/>
+            android:text="XRoundButton" />
 
         <kotyox.widget.XRoundButton
             android:id="@+id/btn"
@@ -147,13 +145,13 @@
             android:gravity="center"
             android:text="开始预测"
             android:textSize="24sp"
-            app:x_gradient_press_click="true"
-            app:x_endColor="#5EA2FE"
-            app:x_borderWidth="@dimen/d_5"
             app:x_borderColor="@color/colorAccent"
-            app:x_fontPressColor="@color/colorAccent"
+            app:x_borderWidth="@dimen/d_5"
+            app:x_endColor="#5EA2FE"
             app:x_fontEnableColor="#fff"
+            app:x_fontPressColor="@color/colorAccent"
             app:x_gradientOrientation="LEFT_RIGHT"
+            app:x_gradient_press_click="true"
             app:x_isRadiusAdjustBounds="true"
             app:x_startColor="#75CEEA" />
 
@@ -166,31 +164,31 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="XRoundRelativeLayout"/>
+            android:text="XRoundRelativeLayout" />
 
         <kotyox.layout.XRelativeLayout
             android:layout_width="100dp"
             android:layout_height="50dp"
-            app:x_outerNormalColor="@color/colorAccent"
             app:x_hideRadiusSide="left"
+            app:x_outerNormalColor="@color/colorAccent"
             app:x_outlineInsetLeft="@dimen/d_5"
 
-            app:x_radiusViewGroup="@dimen/d_5"/>
+            app:x_radiusViewGroup="@dimen/d_5" />
 
         <kotyox.widget.XRoundRelativeLayout
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            app:x_hideRadiusSide="left"
             app:x_borderWidth="1dp"
-            app:x_radius="@dimen/d_5"
-            >
+            app:x_hideRadiusSide="left"
+            app:x_radius="@dimen/d_5">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/c_ffffff"
-                android:textSize="12sp"
                 android:layout_centerInParent="true"
-                android:text="我是继承于 RelativeLayout 的,通过自定义属性可以设置，上下左右分隔线、边框颜色、边框大小、圆角值、背景点击效果、以及阴影大小"/>
+                android:text="我是继承于 RelativeLayout 的,通过自定义属性可以设置，上下左右分隔线、边框颜色、边框大小、圆角值、背景点击效果、以及阴影大小"
+                android:textColor="@color/c_ffffff"
+                android:textSize="12sp" />
         </kotyox.widget.XRoundRelativeLayout>
 
 
@@ -199,8 +197,10 @@
             android:gravity="center"
             android:text="按钮"
             android:textSize="18sp"
+            app:x_backgroundColor="@color/colorAccent"
             app:x_borderColor="@color/colorAccent"
             app:x_borderWidth="2dp"
+            app:x_disableColor="@color/c_179c16"
             app:x_endColor="@color/c_press"
             app:x_fontDisableColor="@color/c_font_disable"
             app:x_fontEnableColor="@color/c_font_press"
@@ -209,12 +209,10 @@
             app:x_isRadiusAdjustBounds="false"
             app:x_middleColor="@color/colorAccent"
             app:x_pressColor="@color/c_press"
-            app:x_radiusTopLeft="5dp"
-            app:x_backgroundColor="@color/colorAccent"
-            app:x_disableColor="@color/c_179c16"
             app:x_radius="@dimen/d_5"
             app:x_radiusBottomLeft="@dimen/d_5"
             app:x_radiusBottomRight="@dimen/d_5"
+            app:x_radiusTopLeft="5dp"
             app:x_radiusTopRight="@dimen/d_5"
             app:x_startColor="@color/colorAccent" />
 
@@ -242,9 +240,9 @@
                 android:id="@+id/top_left"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:clickable="true"
                 android:gravity="center"
                 android:text="左上角"
-                android:clickable="true"
                 android:textSize="18sp"
                 app:x_borderColor="@color/colorAccent"
                 app:x_borderWidth="2dp"
@@ -260,12 +258,12 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_alignParentRight="true"
+                android:clickable="true"
                 android:gravity="center"
                 android:text="右上角"
                 android:textSize="18sp"
                 app:x_borderColor="@color/colorAccent"
                 app:x_borderWidth="2dp"
-                android:clickable="true"
                 app:x_disableColor="@color/c_disable"
                 app:x_fontDisableColor="@color/c_font_disable"
                 app:x_fontEnableColor="@color/colorAccent"
@@ -280,12 +278,12 @@
                 android:layout_height="60dp"
                 android:layout_below="@+id/top_left"
                 android:layout_marginTop="10dp"
+                android:clickable="true"
                 android:gravity="center"
                 android:text="左下角"
                 android:textSize="18sp"
                 app:x_borderColor="@color/colorAccent"
                 app:x_borderWidth="2dp"
-                android:clickable="true"
                 app:x_disableColor="@color/c_disable"
                 app:x_fontDisableColor="@color/c_font_disable"
                 app:x_fontEnableColor="@color/colorAccent"
@@ -300,9 +298,9 @@
                 android:layout_below="@+id/top_right"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="10dp"
+                android:clickable="true"
                 android:gravity="center"
                 android:text="右下角"
-                android:clickable="true"
                 android:textSize="18sp"
                 app:x_borderColor="@color/colorAccent"
                 app:x_borderWidth="2dp"
@@ -324,8 +322,8 @@
             android:padding="10dp"
             android:textColor="@color/colorAccent"
             android:textColorHint="@color/colorAccent"
-            app:x_borderColor="@color/colorPrimaryDark"
             app:x_backgroundColor="@color/c_c1c1c1"
+            app:x_borderColor="@color/colorPrimaryDark"
             app:x_borderWidth="1dp"
             app:x_isRadiusAdjustBounds="true">
 

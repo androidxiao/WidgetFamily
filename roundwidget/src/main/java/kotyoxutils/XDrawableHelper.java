@@ -85,6 +85,20 @@ public class XDrawableHelper {
         return new ColorStateList(states, colors);
     }
 
+    public static ColorStateList createColorStateList(int normal, int pressed, int focused, int unable,int select,int unselect) {
+        int[] colors = new int[]{pressed,select,unselect, focused, normal, focused, unable, normal};
+        int[][] states = new int[colors.length][];
+        states[0] = new int[]{android.R.attr.state_pressed, android.R.attr.state_enabled};
+        states[1] = new int[]{android.R.attr.state_selected};
+        states[2] = new int[]{-android.R.attr.state_selected};
+        states[3] = new int[]{android.R.attr.state_enabled, android.R.attr.state_focused};
+        states[4] = new int[]{android.R.attr.state_enabled};
+        states[5] = new int[]{android.R.attr.state_focused};
+        states[6] = new int[]{android.R.attr.state_window_focused};
+        states[7] = new int[]{};
+        return new ColorStateList(states, colors);
+    }
+
     /**
      * 渐变的方向
      *

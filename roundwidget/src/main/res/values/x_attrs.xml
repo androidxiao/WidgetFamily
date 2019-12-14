@@ -26,8 +26,12 @@
     <attr name="x_pressColor" format="color"/>
     <!-- select 时背景色 -->
     <attr name="x_selectColor" format="color"/>
+    <!-- select 时文字颜色 -->
+    <attr name="x_selectTextColor" format="color"/>
     <!-- select false 时背景色 -->
     <attr name="x_unselectColor" format="color"/>
+    <!-- select false 时文字颜色 -->
+    <attr name="x_unselectTextColor" format="color"/>
     <!-- 正常字体颜色 -->
     <attr name="x_fontEnableColor" format="color"/>
     <!-- 按下字体的颜色 -->
@@ -101,6 +105,8 @@
         <attr name="x_pressColor"/>
         <attr name="x_selectColor"/>
         <attr name="x_unselectColor"/>
+        <attr name="x_selectTextColor" />
+        <attr name="x_unselectTextColor" />
         <attr name="x_fontEnableColor"/>
         <attr name="x_fontPressColor"/>
         <attr name="x_fontDisableColor"/>
