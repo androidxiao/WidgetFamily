@@ -12,6 +12,7 @@ import java.lang.ref.WeakReference;
 
 import family.widget.com.roundwidget.R;
 import kotyox.widget.roundrawable.XRoundDrawable;
+import kotyoxutils.EzLog;
 
 import static kotyoxutils.Px2DpUtil.dp2px;
 import static kotyoxutils.XDrawableHelper.colorStateList;
@@ -72,7 +73,7 @@ public class XRoundConstraintLayoutState {
         mColorBorder = ta.getColorStateList(R.styleable.XRoundConstraintLayout_x_borderColor);
         mBorderWidth = ta.getDimensionPixelSize(R.styleable.XRoundConstraintLayout_x_borderWidth, 0);
         mIsRadiusAdjustBounds = ta.getBoolean(R.styleable.XRoundConstraintLayout_x_isRadiusAdjustBounds, false);
-        mGradientPressClick = ta.getBoolean(R.styleable.XRoundButton_x_gradient_press_click, false);
+        mGradientPressClick = ta.getBoolean(R.styleable.XRoundConstraintLayout_x_gradient_press_click, false);
         mRadius = ta.getDimensionPixelSize(R.styleable.XRoundConstraintLayout_x_radius, 0);
         mRadiusTopLeft = ta.getDimensionPixelSize(R.styleable.XRoundConstraintLayout_x_radiusTopLeft, 0);
         mRadiusTopRight = ta.getDimensionPixelSize(R.styleable.XRoundConstraintLayout_x_radiusTopRight, 0);
@@ -96,23 +97,24 @@ public class XRoundConstraintLayoutState {
             }
             int colors[] = {mStartColor, mMiddleColor, mEndColor};
             mEnableDrawable.setColors(colors);
+            mPressDrawable.setColors(colors);
             if (mRadius == 0) {
                 float[] radii = new float[]{mRadiusTopLeft, mRadiusTopLeft, mRadiusTopRight, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomLeft, mRadiusBottomRight, mRadiusBottomRight};
                 mEnableDrawable.setCornerRadii(radii);
+                mPressDrawable.setCornerRadii(radii);
             } else {
                 mEnableDrawable.setCornerRadius(mRadius);
+                mPressDrawable.setCornerRadius(mRadius);
             }
             mEnableDrawable.setOrientation(getOrientation(mGradientOrientation));
-        }
-
-        if (mPressColor == null) {
-            mPressColor = mColorBg;
+            mPressDrawable.setOrientation(getOrientation(mGradientOrientation));
         }
 
         if (mDisableColor == null) {
             mDisableColor = mColorBg;
         }
 
+        EzLog.d("mGradientPressClick--->"+mGradientPressClick);
         if (!mGradientPressClick) {
             mView.setEnabled(false);
             mDisableDrawable = mEnableDrawable;
@@ -185,6 +187,16 @@ public class XRoundConstraintLayoutState {
 
     public XRoundConstraintLayoutState setBottomRight(int bottomRight) {
         mRadiusBottomRight = dp2px(mContext, bottomRight);
+        return this;
+    }
+
+    public XRoundConstraintLayoutState setSelectColor(int selectColor) {
+        mSelectColor = colorStateList(ContextCompat.getColor(mContext, selectColor));
+        return this;
+    }
+
+    public XRoundConstraintLayoutState setUnSelectColor(int unSelectColor) {
+        mUnSelectColor = colorStateList(ContextCompat.getColor(mContext, unSelectColor));
         return this;
     }
 

@@ -72,7 +72,7 @@ public class XRoundRelativeLayoutState {
         mColorBorder = ta.getColorStateList(R.styleable.XRoundRelativeLayout_x_borderColor);
         mBorderWidth = ta.getDimensionPixelSize(R.styleable.XRoundRelativeLayout_x_borderWidth, 0);
         mIsRadiusAdjustBounds = ta.getBoolean(R.styleable.XRoundRelativeLayout_x_isRadiusAdjustBounds, false);
-        mGradientPressClick = ta.getBoolean(R.styleable.XRoundButton_x_gradient_press_click, false);
+        mGradientPressClick = ta.getBoolean(R.styleable.XRoundRelativeLayout_x_gradient_press_click, false);
         mRadius = ta.getDimensionPixelSize(R.styleable.XRoundRelativeLayout_x_radius, 0);
         mRadiusTopLeft = ta.getDimensionPixelSize(R.styleable.XRoundRelativeLayout_x_radiusTopLeft, 0);
         mRadiusTopRight = ta.getDimensionPixelSize(R.styleable.XRoundRelativeLayout_x_radiusTopRight, 0);
@@ -96,17 +96,17 @@ public class XRoundRelativeLayoutState {
             }
             int colors[] = {mStartColor, mMiddleColor, mEndColor};
             mEnableDrawable.setColors(colors);
+            mPressDrawable.setColors(colors);
             if (mRadius == 0) {
                 float[] radii = new float[]{mRadiusTopLeft, mRadiusTopLeft, mRadiusTopRight, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomLeft, mRadiusBottomRight, mRadiusBottomRight};
                 mEnableDrawable.setCornerRadii(radii);
+                mPressDrawable.setCornerRadii(radii);
             } else {
                 mEnableDrawable.setCornerRadius(mRadius);
+                mPressDrawable.setCornerRadius(mRadius);
             }
             mEnableDrawable.setOrientation(getOrientation(mGradientOrientation));
-        }
-
-        if (mPressColor == null) {
-            mPressColor = mColorBg;
+            mPressDrawable.setOrientation(getOrientation(mGradientOrientation));
         }
 
         if (mDisableColor == null) {
@@ -185,6 +185,16 @@ public class XRoundRelativeLayoutState {
 
     public XRoundRelativeLayoutState setBottomRight(int bottomRight) {
         mRadiusBottomRight = dp2px(mContext, bottomRight);
+        return this;
+    }
+
+    public XRoundRelativeLayoutState setSelectColor(int selectColor) {
+        mSelectColor = colorStateList(ContextCompat.getColor(mContext, selectColor));
+        return this;
+    }
+
+    public XRoundRelativeLayoutState setUnSelectColor(int unSelectColor) {
+        mUnSelectColor = colorStateList(ContextCompat.getColor(mContext, unSelectColor));
         return this;
     }
 

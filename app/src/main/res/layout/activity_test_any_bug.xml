@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kotyox.widget.XRoundConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/xrcl_container"
+    android:clickable="true"
+    app:x_backgroundColor="@color/c_c1c1c1"
+    android:paddingTop="@dimen/d_5"
+    app:x_gradient_press_click="true"
+    android:paddingBottom="@dimen/d_5"
+    android:layout_marginLeft="@dimen/d_16"
+    android:layout_marginTop="@dimen/d_16"
+    android:layout_marginRight="@dimen/d_16">
+
+    <kotyox.widget.XRoundButton
+        app:x_startColor="@color/colorPrimary"
+        app:x_endColor="@color/c_179c16"
+        android:id="@+id/tv_title"
+        app:x_gradientOrientation="LEFT_RIGHT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我是标题"
+        app:x_pressColor="@color/c_font_press"
+        app:x_fontEnableColor="@color/c_ffffff"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/d_5"
+        android:text="我是姓名"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/d_5"
+        android:text="1970.01.01"
+        android:layout_marginLeft="@dimen/d_5"
+        app:layout_constraintLeft_toRightOf="@+id/tv_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+</kotyox.widget.XRoundConstraintLayout>

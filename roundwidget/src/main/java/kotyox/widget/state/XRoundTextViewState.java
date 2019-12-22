@@ -79,7 +79,7 @@ public class XRoundTextViewState {
         mColorBorder = ta.getColorStateList(R.styleable.XRoundTextView_x_borderColor);
         mBorderWidth = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_borderWidth, 0);
         mIsRadiusAdjustBounds = ta.getBoolean(R.styleable.XRoundTextView_x_isRadiusAdjustBounds, false);
-        mGradientPressClick = ta.getBoolean(R.styleable.XRoundButton_x_gradient_press_click, false);
+        mGradientPressClick = ta.getBoolean(R.styleable.XRoundTextView_x_gradient_press_click, false);
         mRadius = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radius, 0);
         mRadiusTopLeft = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radiusTopLeft, 0);
         mRadiusTopRight = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radiusTopRight, 0);
@@ -108,17 +108,17 @@ public class XRoundTextViewState {
             }
             int colors[] = {mStartColor, mMiddleColor, mEndColor};
             mEnableDrawable.setColors(colors);
+            mPressDrawable.setColors(colors);
             if (mRadius == 0) {
                 float[] radii = new float[]{mRadiusTopLeft, mRadiusTopLeft, mRadiusTopRight, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomLeft, mRadiusBottomRight, mRadiusBottomRight};
                 mEnableDrawable.setCornerRadii(radii);
+                mPressDrawable.setCornerRadii(radii);
             } else {
                 mEnableDrawable.setCornerRadius(mRadius);
+                mPressDrawable.setCornerRadius(mRadius);
             }
             mEnableDrawable.setOrientation(getOrientation(mGradientOrientation));
-        }
-
-        if (mPressColor == null) {
-            mPressColor = mColorBg;
+            mPressDrawable.setOrientation(getOrientation(mGradientOrientation));
         }
 
         if (mUnSelectColor == null) {
@@ -219,6 +219,16 @@ public class XRoundTextViewState {
 
     public XRoundTextViewState setDisableColor(int disableColor) {
         mDisableColor = colorStateList(ContextCompat.getColor(mContext, disableColor));
+        return this;
+    }
+
+    public XRoundTextViewState setSelectColor(int selectColor) {
+        mSelectColor = colorStateList(ContextCompat.getColor(mContext, selectColor));
+        return this;
+    }
+
+    public XRoundTextViewState setUnSelectColor(int unSelectColor) {
+        mUnSelectColor = colorStateList(ContextCompat.getColor(mContext, unSelectColor));
         return this;
     }
 

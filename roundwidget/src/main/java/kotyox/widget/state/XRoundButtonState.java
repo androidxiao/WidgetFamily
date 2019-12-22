@@ -95,17 +95,17 @@ public class XRoundButtonState {
             }
             int colors[] = {mStartColor, mMiddleColor, mEndColor};
             mEnableDrawable.setColors(colors);
+            mPressDrawable.setColors(colors);
             if (mRadius == 0) {
                 float[] radii = new float[]{mRadiusTopLeft, mRadiusTopLeft, mRadiusTopRight, mRadiusTopRight, mRadiusBottomLeft, mRadiusBottomLeft, mRadiusBottomRight, mRadiusBottomRight};
                 mEnableDrawable.setCornerRadii(radii);
+                mPressDrawable.setCornerRadii(radii);
             } else {
                 mEnableDrawable.setCornerRadius(mRadius);
+                mPressDrawable.setCornerRadius(mRadius);
             }
             mEnableDrawable.setOrientation(getOrientation(mGradientOrientation));
-        }
-
-        if (mPressColor == null) {
-            mPressColor = mColorBg;
+            mPressDrawable.setOrientation(getOrientation(mGradientOrientation));
         }
 
         if (mFontPressColor == 0) {
