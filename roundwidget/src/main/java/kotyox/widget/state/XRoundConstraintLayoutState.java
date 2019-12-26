@@ -12,7 +12,6 @@ import java.lang.ref.WeakReference;
 
 import family.widget.com.roundwidget.R;
 import kotyox.widget.roundrawable.XRoundDrawable;
-import kotyoxutils.EzLog;
 
 import static kotyoxutils.Px2DpUtil.dp2px;
 import static kotyoxutils.XDrawableHelper.colorStateList;
@@ -33,7 +32,7 @@ public class XRoundConstraintLayoutState {
     private ColorStateList mColorBorder;
     private int mBorderWidth;
     private boolean mIsRadiusAdjustBounds;
-    private boolean mGradientPressClick;
+    private boolean mGradientPressClick = true;
     private int mRadius;
     private int mRadiusTopLeft;
     private int mRadiusTopRight;
@@ -73,7 +72,7 @@ public class XRoundConstraintLayoutState {
         mColorBorder = ta.getColorStateList(R.styleable.XRoundConstraintLayout_x_borderColor);
         mBorderWidth = ta.getDimensionPixelSize(R.styleable.XRoundConstraintLayout_x_borderWidth, 0);
         mIsRadiusAdjustBounds = ta.getBoolean(R.styleable.XRoundConstraintLayout_x_isRadiusAdjustBounds, false);
-        mGradientPressClick = ta.getBoolean(R.styleable.XRoundConstraintLayout_x_gradient_press_click, false);
+        mGradientPressClick = ta.getBoolean(R.styleable.XRoundConstraintLayout_x_gradient_press_click, true);
         mRadius = ta.getDimensionPixelSize(R.styleable.XRoundConstraintLayout_x_radius, 0);
         mRadiusTopLeft = ta.getDimensionPixelSize(R.styleable.XRoundConstraintLayout_x_radiusTopLeft, 0);
         mRadiusTopRight = ta.getDimensionPixelSize(R.styleable.XRoundConstraintLayout_x_radiusTopRight, 0);
@@ -110,11 +109,18 @@ public class XRoundConstraintLayoutState {
             mPressDrawable.setOrientation(getOrientation(mGradientOrientation));
         }
 
+        if (mUnSelectColor == null) {
+            mUnSelectColor = mColorBg;
+        }
+
         if (mDisableColor == null) {
             mDisableColor = mColorBg;
         }
 
-        EzLog.d("mGradientPressClick--->"+mGradientPressClick);
+        if (mPressColor == null) {
+            mPressColor = mColorBg;
+        }
+
         if (!mGradientPressClick) {
             mView.setEnabled(false);
             mDisableDrawable = mEnableDrawable;

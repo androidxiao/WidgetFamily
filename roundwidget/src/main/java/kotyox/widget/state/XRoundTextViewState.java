@@ -34,7 +34,7 @@ public class XRoundTextViewState {
     private ColorStateList mColorBorder;
     private int mBorderWidth;
     private boolean mIsRadiusAdjustBounds;
-    private boolean mGradientPressClick;
+    private boolean mGradientPressClick = true;
     private int mRadius;
     private int mRadiusTopLeft;
     private int mRadiusTopRight;
@@ -79,7 +79,7 @@ public class XRoundTextViewState {
         mColorBorder = ta.getColorStateList(R.styleable.XRoundTextView_x_borderColor);
         mBorderWidth = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_borderWidth, 0);
         mIsRadiusAdjustBounds = ta.getBoolean(R.styleable.XRoundTextView_x_isRadiusAdjustBounds, false);
-        mGradientPressClick = ta.getBoolean(R.styleable.XRoundTextView_x_gradient_press_click, false);
+        mGradientPressClick = ta.getBoolean(R.styleable.XRoundTextView_x_gradient_press_click, true);
         mRadius = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radius, 0);
         mRadiusTopLeft = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radiusTopLeft, 0);
         mRadiusTopRight = ta.getDimensionPixelSize(R.styleable.XRoundTextView_x_radiusTopRight, 0);
@@ -127,6 +127,10 @@ public class XRoundTextViewState {
 
         if (mFontPressColor == 0) {
             mFontPressColor = mFontEnableColor;
+        }
+
+        if (mPressColor == null) {
+            mPressColor = mColorBg;
         }
 
         if (!mGradientPressClick && mStartColor !=0) {

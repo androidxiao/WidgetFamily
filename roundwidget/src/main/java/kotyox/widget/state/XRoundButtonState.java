@@ -13,6 +13,7 @@ import java.lang.ref.WeakReference;
 
 import family.widget.com.roundwidget.R;
 import kotyox.widget.roundrawable.XRoundDrawable;
+import kotyoxutils.EzLog;
 
 import static kotyoxutils.Px2DpUtil.dp2px;
 import static kotyoxutils.XDrawableHelper.colorStateList;
@@ -34,7 +35,7 @@ public class XRoundButtonState {
     private ColorStateList mColorBorder;
     private int mBorderWidth;
     private boolean mIsRadiusAdjustBounds;
-    private boolean mGradientPressClick;
+    private boolean mGradientPressClick = true;
     private int mRadius;
     private int mRadiusTopLeft;
     private int mRadiusTopRight;
@@ -112,6 +113,11 @@ public class XRoundButtonState {
             mFontPressColor = mFontEnableColor;
         }
 
+        if (mPressColor == null) {
+            mPressColor = mColorBg;
+        }
+
+        EzLog.d("mGradientPressClick--->"+mGradientPressClick);
         if (!mGradientPressClick) {
             mView.setEnabled(false);
             mFontDisableColor = mFontEnableColor;
